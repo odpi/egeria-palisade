@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: uk.gov.gchq.palisade:core-rest-service:classes:0.3.1-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/uk/gov/gchq/palisade/core-rest-service/0.3.1-SNAPSHOT/core-rest-service-0.3.1-SNAPSHOT-classes.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/uk/gov/gchq/palisade/core-rest-service/0.3.1-SNAPSHOT/core-rest-service-0.3.1-SNAPSHOT-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/uk/gov/gchq/palisade/core-rest-service/0.3.1-SNAPSHOT/core-rest-service-0.3.1-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

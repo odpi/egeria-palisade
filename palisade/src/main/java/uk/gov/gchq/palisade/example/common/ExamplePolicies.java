@@ -18,14 +18,9 @@ package uk.gov.gchq.palisade.example.common;
 
 import uk.gov.gchq.palisade.example.hrdatagenerator.types.Employee;
 import uk.gov.gchq.palisade.example.rule.BankDetailsRule;
-import uk.gov.gchq.palisade.example.rule.ContactsRule;
 import uk.gov.gchq.palisade.example.rule.DutyOfCareRule;
-import uk.gov.gchq.palisade.example.rule.DateOfBirthRule;
-import uk.gov.gchq.palisade.example.rule.HireDateRule;
-import uk.gov.gchq.palisade.example.rule.IdentityRule;
-import uk.gov.gchq.palisade.example.rule.OrgDetailsRule;
-import uk.gov.gchq.palisade.example.rule.ProtectedCharacteristicsRule;
-import uk.gov.gchq.palisade.example.rule.SalaryRule;
+import uk.gov.gchq.palisade.example.rule.MaskPersonalDetailsRule;
+import uk.gov.gchq.palisade.example.rule.NationalityRule;
 import uk.gov.gchq.palisade.example.rule.ZipCodeMaskingRule;
 import uk.gov.gchq.palisade.example.util.ExampleFileUtil;
 import uk.gov.gchq.palisade.policy.service.Policy;
@@ -72,7 +67,7 @@ public final class ExamplePolicies {
                 .policy(new Policy<Employee>()
                         .owner(ExampleUsers.getFaithBroker())
                         .recordLevelRule(
-                                "1-Bank details rule",
+                                "1-Bank details only visible for the purpose of salary",
                                 new BankDetailsRule()
                         )
                         .recordLevelRule(
@@ -80,35 +75,16 @@ public final class ExamplePolicies {
                                 new DutyOfCareRule()
                         )
                         .recordLevelRule(
-                                "3-Protected characteristics rule",
-                                new ProtectedCharacteristicsRule()
+                                "3-Nationality is only available for staff report",
+                                new NationalityRule()
                         )
                         .recordLevelRule(
-                                "4-Home address rule",
+                                "4-Address masked for estates staff and otherwise only available for duty of care",
                                 new ZipCodeMaskingRule()
                         )
                         .recordLevelRule(
-                                "5-Date of birth rule",
-                                new DateOfBirthRule()
-                        )
-                        .recordLevelRule(
-                                "6-Employee contacts rule",
-                                new ContactsRule()
-                        )
-                        .recordLevelRule(
-                                "7-Hire date rule",
-                                new HireDateRule()
-                        )
-                        .recordLevelRule(
-                                "8-Identity rule",
-                                new IdentityRule()
-                        )
-                        .recordLevelRule(
-                                "9-Organisation details rule",
-                                new OrgDetailsRule()
-                        ).recordLevelRule(
-                                "10-Salary rule",
-                                new SalaryRule()
+                                "5-mask the name and id of the employee if running a staff report",
+                                new MaskPersonalDetailsRule()
                         )
                 );
     }

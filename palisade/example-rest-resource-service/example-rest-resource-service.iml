@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="web" name="Web">
+      <configuration>
+        <descriptors>
+          <deploymentDescriptor name="context.xml" url="file://$MODULE_DIR$/src/main/webapp/META-INF/context.xml" />
+        </descriptors>
+        <webroots>
+          <root url="file://$MODULE_DIR$/src/main/webapp" relative="/" />
+        </webroots>
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
+    <output url="file://$MODULE_DIR$/target/classes" />
+    <output-test url="file://$MODULE_DIR$/target/test-classes" />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
+      <excludeFolder url="file://$MODULE_DIR$/target" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="example-model" />
+    <orderEntry type="library" name="Maven: uk.gov.gchq.palisade:egeria-resource-service:0.3.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.10.0" level="project" />
+    <orderEntry type="library" name="Maven: org.odpi.egeria:open-connector-framework:1.1" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.9.9.3" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.9.9" level="project" />
+    <orderEntry type="library" name="Maven: org.odpi.egeria:asset-consumer-client:1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.odpi.egeria:asset-consumer-api:1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.odpi.egeria:ocf-metadata-api:1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.odpi.egeria:ffdc-services:1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.odpi.egeria:rest-client-connectors-api:1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.odpi.egeria:rest-client-factory:1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.odpi.egeria:spring-rest-client-connector:1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-web:5.1.8.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-beans:5.1.8.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-core:5.1.8.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-jcl:5.1.8.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.plexus:plexus-utils:3.2.0" level="project" />
+    <orderEntry type="library" name="Maven: org.odpi.egeria:repository-services-apis:1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.odpi.egeria:ocf-metadata-client:1.1" level="project" />
+    <orderEntry type="library" name="Maven: uk.gov.gchq.palisade:client-common:0.3.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: uk.gov.gchq.palisade:cache-service:0.3.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: uk.gov.gchq.palisade:palisade-service:0.3.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: uk.gov.gchq.palisade:audit-service:0.3.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: uk.gov.gchq.palisade:hadoop-resource-service:0.3.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: uk.gov.gchq.palisade:shade-hadoop-client:0.3.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: uk.gov.gchq.palisade:resource-service:0.3.1-SNAPSHOT" level="project" />
+    <orderEntry type="module" module-name="example-model" />
+    <orderEntry type="library" name="Maven: uk.gov.gchq.palisade:common:0.3.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.9.8" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.8" level="project" />
+    <orderEntry type="library" name="Maven: commons-io:commons-io:2.6" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.avro:avro:1.8.2" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.13" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.13" level="project" />
+    <orderEntry type="library" name="Maven: com.thoughtworks.paranamer:paranamer:2.7" level="project" />
+    <orderEntry type="library" name="Maven: org.xerial.snappy:snappy-java:1.1.1.3" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-compress:1.8.1" level="project" />
+    <orderEntry type="library" name="Maven: org.tukaani:xz:1.5" level="project" />
+    <orderEntry type="library" name="Maven: uk.gov.gchq.palisade:simple-data-service:0.3.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: uk.gov.gchq.palisade:simple-client:0.3.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: uk.gov.gchq.palisade:config-service:0.3.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: uk.gov.gchq.palisade:proxy-rest-config-service:0.3.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: uk.gov.gchq.palisade:proxy-rest-policy-service:0.3.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: uk.gov.gchq.palisade:proxy-rest-resource-service:0.3.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: uk.gov.gchq.palisade:proxy-rest-palisade-service:0.3.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: uk.gov.gchq.palisade:proxy-rest-user-service:0.3.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: uk.gov.gchq.palisade:etcd-backing-store:0.3.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: io.etcd:jetcd-core:0.3.0" level="project" />
+    <orderEntry type="library" name="Maven: io.etcd:jetcd-common:0.3.0" level="project" />
+    <orderEntry type="library" name="Maven: io.etcd:jetcd-resolver:0.3.0" level="project" />
+    <orderEntry type="library" name="Maven: io.grpc:grpc-core:1.17.1" level="project" />
+    <orderEntry type="library" name="Maven: io.grpc:grpc-context:1.17.1" level="project" />
+    <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.7" level="project" />
+    <orderEntry type="library" name="Maven: io.opencensus:opencensus-api:0.17.0" level="project" />
+    <orderEntry type="library" name="Maven: io.opencensus:opencensus-contrib-grpc-metrics:0.17.0" level="project" />
+    <orderEntry type="library" name="Maven: io.grpc:grpc-netty:1.17.1" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-codec-http2:4.1.30.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-codec-http:4.1.30.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-codec:4.1.30.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-handler:4.1.30.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-buffer:4.1.30.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-common:4.1.30.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-handler-proxy:4.1.30.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-transport:4.1.30.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-resolver:4.1.30.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-codec-socks:4.1.30.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.grpc:grpc-protobuf:1.17.1" level="project" />
+    <orderEntry type="library" name="Maven: com.google.api.grpc:proto-google-common-protos:1.0.0" level="project" />
+    <orderEntry type="library" name="Maven: io.grpc:grpc-protobuf-lite:1.17.1" level="project" />
+    <orderEntry type="library" name="Maven: io.grpc:grpc-stub:1.17.1" level="project" />
+    <orderEntry type="library" name="Maven: io.grpc:grpc-grpclb:1.17.1" level="project" />
+    <orderEntry type="library" name="Maven: com.google.protobuf:protobuf-java-util:3.5.1" level="project" />
+    <orderEntry type="library" name="Maven: com.google.protobuf:protobuf-java:3.5.1" level="project" />
+    <orderEntry type="library" name="Maven: uk.gov.gchq.palisade:simple-config-service:0.3.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: uk.gov.gchq.palisade:simple-cache-service:0.3.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: uk.gov.gchq.palisade:hashmap-backing-store:0.3.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: uk.gov.gchq.palisade:hadoop-data-service:0.3.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: uk.gov.gchq.palisade:hierarchical-policy-service:0.3.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: uk.gov.gchq.palisade:simple-palisade-service:0.3.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: uk.gov.gchq.palisade:simple-user-service:0.3.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: uk.gov.gchq.palisade:logger-audit-service:0.3.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: uk.gov.gchq.palisade:policy-service:0.3.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: uk.gov.gchq.palisade:user-service:0.3.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: uk.gov.gchq.palisade:rest-redirector-service:0.3.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: uk.gov.gchq.palisade:redirector-service:0.3.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: uk.gov.gchq.palisade:simple-redirector-service:0.3.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: uk.gov.gchq.palisade:hr-data-generator:0.3.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: com.github.javafaker:javafaker:0.16" level="project" />
+    <orderEntry type="library" name="Maven: org.yaml:snakeyaml:android:1.20" level="project" />
+    <orderEntry type="library" name="Maven: com.github.mifmif:generex:1.0.2" level="project" />
+    <orderEntry type="library" name="Maven: dk.brics.automaton:automaton:1.11-8" level="project" />
+    <orderEntry type="library" name="Maven: uk.gov.gchq.palisade:proxy-rest-data-service:0.3.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: uk.gov.gchq.palisade:proxy-rest-service:0.3.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: uk.gov.gchq.palisade:data-service:0.3.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: uk.gov.gchq.palisade:rest-resource-service:classes:0.3.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.jersey.inject:jersey-hk2:2.27" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.hk2:hk2-locator:2.5.0-b42" level="project" />
+    <orderEntry type="library" name="Maven: org.javassist:javassist:3.22.0-CR2" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.hk2:hk2-api:2.5.0" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.hk2.external:jakarta.inject:2.5.0" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.hk2:hk2-utils:2.5.0" level="project" />
+    <orderEntry type="library" name="Maven: jakarta.annotation:jakarta.annotation-api:1.3.4" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.hk2.external:aopalliance-repackaged:2.5.0" level="project" />
+    <orderEntry type="library" name="Maven: uk.gov.gchq.palisade:core-rest-service:classes:0.3.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: io.swagger:swagger-jersey2-jaxrs:1.5.21" level="project" />
+    <orderEntry type="library" name="Maven: io.swagger:swagger-jaxrs:1.5.21" level="project" />
+    <orderEntry type="library" name="Maven: io.swagger:swagger-core:1.5.21" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.9.5" level="project" />
+    <orderEntry type="library" name="Maven: org.yaml:snakeyaml:1.18" level="project" />
+    <orderEntry type="library" name="Maven: io.swagger:swagger-models:1.5.21" level="project" />
+    <orderEntry type="library" name="Maven: org.reflections:reflections:0.9.11" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.jersey.media:jersey-media-multipart:2.25.1" level="project" />
+    <orderEntry type="library" name="Maven: org.jvnet.mimepull:mimepull:1.9.6" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.jersey.media:jersey-media-json-jackson:2.27" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.jersey.ext:jersey-entity-filtering:2.27" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.8.10" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.grizzly:grizzly-http-servlet:2.4.3.1" level="project" />
+    <orderEntry type="library" name="Maven: io.swagger:swagger-annotations:1.5.21" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.jersey.containers:jersey-container-grizzly2-http:2.27" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.hk2.external:javax.inject:2.5.0-b42" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.grizzly:grizzly-http-server:2.4.0" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.grizzly:grizzly-http:2.4.0" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.grizzly:grizzly-framework:2.4.0" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.jersey.core:jersey-common:2.27" level="project" />
+    <orderEntry type="library" name="Maven: javax.annotation:javax.annotation-api:1.2" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.hk2:osgi-resource-locator:1.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.jersey.core:jersey-server:2.27" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.jersey.core:jersey-client:2.27" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.jersey.media:jersey-media-jaxb:2.27" level="project" />
+    <orderEntry type="library" name="Maven: javax.validation:validation-api:1.1.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: javax.ws.rs:javax.ws.rs-api:2.1" level="project" />
+    <orderEntry type="library" name="Maven: javax.servlet:javax.servlet-api:4.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.jersey.containers:jersey-container-servlet:2.27" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.jersey.containers:jersey-container-servlet-core:2.27" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.25" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-log4j12:1.7.25" level="project" />
+    <orderEntry type="library" name="Maven: log4j:log4j:1.2.17" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.8.1" level="project" />
+    <orderEntry type="library" name="Maven: com.google.guava:guava:27.0.1-jre" level="project" />
+    <orderEntry type="library" name="Maven: com.google.guava:failureaccess:1.0.1" level="project" />
+    <orderEntry type="library" name="Maven: com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava" level="project" />
+    <orderEntry type="library" name="Maven: com.google.code.findbugs:jsr305:3.0.2" level="project" />
+    <orderEntry type="library" name="Maven: org.checkerframework:checker-qual:2.5.2" level="project" />
+    <orderEntry type="library" name="Maven: com.google.errorprone:error_prone_annotations:2.2.0" level="project" />
+    <orderEntry type="library" name="Maven: com.google.j2objc:j2objc-annotations:1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.mojo:animal-sniffer-annotations:1.17" level="project" />
+    <orderEntry type="library" name="Maven: javax.xml.bind:jaxb-api:2.2.8" level="project" />
+    <orderEntry type="library" name="Maven: javax.activation:javax.activation-api:1.2.0" level="project" />
+    <orderEntry type="library" name="Maven: com.github.stephenc.jcip:jcip-annotations:1.0-1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.12" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest-core:1.3" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.mockito:mockito-all:1.10.19" level="project" />
+  </component>
+</module>

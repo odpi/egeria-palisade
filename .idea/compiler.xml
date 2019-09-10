@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="example-rest-resource-service" />
+        <module name="example-model" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="egeria-palisade" target="8" />
+      <module name="example" target="8" />
+      <module name="example-docker-services" target="8" />
+      <module name="example-model" target="8" />
+      <module name="example-rest-resource-service" target="8" />
+      <module name="local-docker" target="8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="example" options="" />
+      <module name="example-model" options="-Xlint:deprecation" />
+      <module name="example-rest-resource-service" options="-Xlint:deprecation" />
+    </option>
+  </component>
+</project>
