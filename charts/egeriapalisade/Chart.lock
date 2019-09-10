@@ -1,0 +1,9 @@
+dependencies:
+- name: lab
+  repository: file:///Users/jonesn/src/egeria/open-metadata-resources/open-metadata-deployment/charts/lab
+  version: 0.1.0
+- name: palisade-workshop
+  repository: file:///Users/jonesn/src/palisade-workshop/
+  version: 0.1.0
+digest: sha256:8d9ddfa247979d5ef3bcfa10ea42b5289e9239cb26cd00aaf49cf029c3750c11
+generated: "2019-09-10T13:33:42.817786+01:00"
