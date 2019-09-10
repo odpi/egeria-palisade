@@ -46,7 +46,7 @@ public class ExampleSimpleClient extends SimpleClient<Employee> {
             String filename = args[1];
             String purpose = args[2];
             PalisadeService palisade = ClientUtil.getPalisadeClientEntryPoint();
-            User user = ExampleUsers.getUser(userId);
+            User user = ExampleUsers.getUser(userId.toLowerCase());
             LOGGER.info(user.getUserId().toString() + " is reading the Employee file with a purpose of " + purpose);
             final Stream<Employee> results = new ExampleSimpleClient(palisade).read(filename, user.getUserId().getId(), purpose);
             LOGGER.info(user.getUserId().toString() + " got back: ");
