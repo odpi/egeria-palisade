@@ -4,7 +4,7 @@
 # Egeria Palisade data generator
 
 CreateCocoEmployeesAvro generates an avro file containing Egerias example company: [Coco Pharmaceuticals personnas](https://github.com/odpi/data-governance/blob/master/docs/coco-pharmaceuticals/personas/README.md).
-The avro format is based on employee schema in Palisade. Palisade has a [data generator]9https://github.com/gchq/Palisade/tree/develop/example/hr-data-generator) example that generates avro files using the Employee schema.
+The avro format is based on employee schema in Palisade. Palisade has a [data generator](https://github.com/gchq/Palisade/tree/develop/example/hr-data-generator) example that generates avro files using the Employee schema.
  <p>
 ## Build Prereqs:
 <ul>
