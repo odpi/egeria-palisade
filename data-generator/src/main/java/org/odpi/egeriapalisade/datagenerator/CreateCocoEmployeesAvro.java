@@ -13,7 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * This class generates an avro file containing Egerias example company: Coco Pharmaceuticals personnas https://github.com/odpi/data-governance/blob/master/docs/coco-pharmaceuticals/personas/README.md.
+ * This class generates an avro file containing Egerias example company: Coco Pharmaceuticals personas https://github.com/odpi/data-governance/blob/master/docs/coco-pharmaceuticals/personas/README.md.
  * The avro format is based on employee schema in Palisade. Palisade has a data generator example that generates avro files using the Employee schema https://github.com/gchq/Palisade/tree/develop/example/hr-data-generator.
  * <p>
  * Build Prereqs:
@@ -22,7 +22,7 @@ import org.slf4j.LoggerFactory;
  * - clone https://github.com/odpi/egeria into a folder <egeria>
  * This class runs as a java application, that takes 2 parameters, the output folder and the folder you have clones Egeria into <egeria>.
  * <p>
- * There is an avro file that has already been generated in data-generator/generated-data. As changes are made in this repository, Egeria or Palisade then this file may need to be re generated.
+ * There is an avro file that has already been generated in data-generator/sample-data. As changes are made in this repository, Egeria or Palisade then this file may need to be re generated.
  * <p>
  * Note this file relies on the shape of example Egeria csv files.
  */
@@ -54,7 +54,7 @@ public class CreateCocoEmployeesAvro {
     static String outputFolderPath;
 
     /**
-     * Some hard coded maps containing informaiton about the coco personnas
+     * Some hard coded maps containing information about the coco personas
      */
     static void initializeMaps(int currentYear) {
         // department code to name
@@ -76,7 +76,7 @@ public class CreateCocoEmployeesAvro {
         depNametoManagerMap.put("Amsterdam Lab", "439222");
         depNametoManagerMap.put("London Lab", "371803");
         depNametoManagerMap.put("New York Lab", "133777");
-        // map last name to the date of birth - date of birth calculated from current year - age (from the personnas web page)
+        // map last name to the date of birth - date of birth calculated from current year - age (from the personas web page)
         nametoBirthMap.put("Now", "10/11/" + (currentYear-59));
         nametoBirthMap.put("Starter", "10/11/" + (currentYear-59));
         nametoBirthMap.put("Daring", "10/11/" + (currentYear-59));
@@ -292,6 +292,17 @@ public class CreateCocoEmployeesAvro {
                     // set Nationality randomly
                     Nationality nationality = Nationality.generate(new Random());
                     employee.setNationality(nationality);
+                    PhoneNumber[] contacts = new PhoneNumber[2];
+                    // set work phone number
+                    PhoneNumber workPhoneNumber = PhoneNumber.generate(new Random());
+                    workPhoneNumber.setType("Work");
+                    contacts[0]=workPhoneNumber;
+
+                    // set home phone number
+                    PhoneNumber homePhoneNumber = PhoneNumber.generate(new Random());
+                    homePhoneNumber.setType("Home");
+                    contacts[1]=homePhoneNumber;
+                    employee.setContactNumbers(contacts);
 
                     Stream<Employee> employeeStream = Stream.of(employee);
                     if (fullStream == null) {
@@ -376,7 +387,7 @@ public class CreateCocoEmployeesAvro {
     private static boolean areArgsValid(final String[] args) {
         boolean isValid = true;
         if (args.length < 2) {
-            LOGGER.error("This method needs at least two arguments. The directory path to save the files in and the directory where the Egeria source has been git cloned to (from https://github.com/odpi/egeria).");
+            LOGGER.error("This method needs two arguments. The directory path to save the files in and the directory where the Egeria source has been git cloned to (from https://github.com/odpi/egeria).");
             isValid = false;
         } else {
             outputFolderPath = args[0];
