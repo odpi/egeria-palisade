@@ -24,14 +24,8 @@ import uk.gov.gchq.palisade.rule.Rule;
 
 import static java.util.Objects.requireNonNull;
 
-public class MaskPersonalDetailsRule implements Rule<Employee> {
-    public MaskPersonalDetailsRule() {
-    }
-
-    private Employee redactRecord(final Employee redactedRecord) {
-        redactedRecord.setName(null);
-        redactedRecord.setUid(null);
-        return redactedRecord;
+public class SalaryRule implements Rule<Employee> {
+    public SalaryRule() {
     }
 
     public Employee apply(final Employee record, final User user, final Context context) {
@@ -42,9 +36,19 @@ public class MaskPersonalDetailsRule implements Rule<Employee> {
         requireNonNull(context);
         String purpose = context.getPurpose();
 
-        if (purpose.equals(Purpose.STAFF_REPORT.name())) {
+        if (purpose.equals(Purpose.SALARY_ANALYSIS.name())) {
+            return record;
+        } else if (purpose.equals(Purpose.EDIT.name()) && user.getUserId().equals(record.getUid())) {
             return record;
         }
         return redactRecord(record);
+    }
+
+    private Employee redactRecord(final Employee redactedRecord) {
+        redactedRecord.setGrade(null);
+        redactedRecord.setSalaryAmount(-1);
+        redactedRecord.setSalaryBonus(-1);
+        redactedRecord.setTaxCode(null);
+        return redactedRecord;
     }
 }
