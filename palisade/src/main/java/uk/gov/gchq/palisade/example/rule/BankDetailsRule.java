@@ -18,7 +18,6 @@ package uk.gov.gchq.palisade.example.rule;
 
 import uk.gov.gchq.palisade.Context;
 import uk.gov.gchq.palisade.User;
-import uk.gov.gchq.palisade.example.common.ExampleUser;
 import uk.gov.gchq.palisade.example.common.Purpose;
 import uk.gov.gchq.palisade.example.hrdatagenerator.types.Employee;
 import uk.gov.gchq.palisade.rule.Rule;
@@ -29,14 +28,6 @@ public class BankDetailsRule implements Rule<Employee> {
     public BankDetailsRule() {
     }
 
-    private Employee redactRecord(final Employee redactedRecord) {
-        redactedRecord.setBankDetails(null);
-        redactedRecord.setTaxCode(null);
-        redactedRecord.setSalaryAmount(-1);
-        redactedRecord.setSalaryBonus(-1);
-        return redactedRecord;
-    }
-
     public Employee apply(final Employee record, final User user, final Context context) {
         if (null == record) {
             return null;
@@ -45,12 +36,14 @@ public class BankDetailsRule implements Rule<Employee> {
         requireNonNull(context);
         String purpose = context.getPurpose();
 
-        if (user instanceof ExampleUser) {
-            ExampleUser exampleUser = (ExampleUser) user;
-            if (purpose.equals(Purpose.SALARY.name())) {
-                return record;
-            }
+        if (purpose.equals(Purpose.EDIT.name()) && user.getUserId().equals(record.getUid())) {
+            return record;
         }
         return redactRecord(record);
+    }
+
+    private Employee redactRecord(final Employee redactedRecord) {
+        redactedRecord.setBankDetails(null);
+        return redactedRecord;
     }
 }

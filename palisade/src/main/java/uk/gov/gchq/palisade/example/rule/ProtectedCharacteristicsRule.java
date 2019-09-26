@@ -18,17 +18,15 @@ package uk.gov.gchq.palisade.example.rule;
 
 import uk.gov.gchq.palisade.Context;
 import uk.gov.gchq.palisade.User;
-import uk.gov.gchq.palisade.UserId;
 import uk.gov.gchq.palisade.example.common.Purpose;
 import uk.gov.gchq.palisade.example.hrdatagenerator.types.Employee;
-import uk.gov.gchq.palisade.example.hrdatagenerator.types.Manager;
-import uk.gov.gchq.palisade.example.util.EmployeeUtils;
 import uk.gov.gchq.palisade.rule.Rule;
 
 import static java.util.Objects.requireNonNull;
 
-public class DutyOfCareRule implements Rule<Employee> {
-    public DutyOfCareRule() {
+public class ProtectedCharacteristicsRule implements Rule<Employee> {
+
+    public ProtectedCharacteristicsRule() {
     }
 
     public Employee apply(final Employee record, final User user, final Context context) {
@@ -39,10 +37,8 @@ public class DutyOfCareRule implements Rule<Employee> {
         requireNonNull(user);
         requireNonNull(context);
         String purpose = context.getPurpose();
-        UserId userId = user.getUserId();
-        Manager[] managers = record.getManager();
 
-        if ((EmployeeUtils.isManager(managers, userId).equals(Boolean.TRUE)) & purpose.equals(Purpose.DUTY_OF_CARE.name())) {
+        if (purpose.equals(Purpose.SALARY_ANALYSIS.name())) {
             return record;
         } else if (purpose.equals(Purpose.EDIT.name()) && user.getUserId().equals(record.getUid())) {
             return record;
@@ -51,7 +47,8 @@ public class DutyOfCareRule implements Rule<Employee> {
     }
 
     private Employee redactRecord(final Employee redactedRecord) {
-        redactedRecord.setEmergencyContacts(null);
+        redactedRecord.setNationality(null);
+        redactedRecord.setSex(null);
         return redactedRecord;
     }
 }
