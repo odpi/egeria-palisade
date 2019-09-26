@@ -19,8 +19,8 @@ package uk.gov.gchq.palisade.example.common;
 import uk.gov.gchq.palisade.example.hrdatagenerator.types.Employee;
 import uk.gov.gchq.palisade.example.rule.BankDetailsRule;
 import uk.gov.gchq.palisade.example.rule.DutyOfCareRule;
-import uk.gov.gchq.palisade.example.rule.MaskPersonalDetailsRule;
-import uk.gov.gchq.palisade.example.rule.NationalityRule;
+import uk.gov.gchq.palisade.example.rule.DateOfBirthRule;
+import uk.gov.gchq.palisade.example.rule.ProtectedCharacteristicsRule;
 import uk.gov.gchq.palisade.example.rule.ZipCodeMaskingRule;
 import uk.gov.gchq.palisade.example.util.ExampleFileUtil;
 import uk.gov.gchq.palisade.policy.service.Policy;
@@ -76,7 +76,7 @@ public final class ExamplePolicies {
                         )
                         .recordLevelRule(
                                 "3-Nationality is only available for staff report",
-                                new NationalityRule()
+                                new ProtectedCharacteristicsRule()
                         )
                         .recordLevelRule(
                                 "4-Address masked for estates staff and otherwise only available for duty of care",
@@ -84,7 +84,7 @@ public final class ExamplePolicies {
                         )
                         .recordLevelRule(
                                 "5-mask the name and id of the employee if running a staff report",
-                                new MaskPersonalDetailsRule()
+                                new DateOfBirthRule()
                         )
                 );
     }

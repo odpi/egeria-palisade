@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package uk.gov.gchq.palisade.example.common;
+package uk.gov.gchq.palisade.example.util;
 
 import uk.gov.gchq.palisade.UserId;
 import uk.gov.gchq.palisade.example.hrdatagenerator.types.Manager;
