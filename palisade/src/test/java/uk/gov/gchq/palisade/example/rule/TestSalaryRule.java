@@ -16,10 +16,10 @@ import static org.junit.Assume.assumeFalse;
 import static org.junit.Assume.assumeThat;
 
 @RunWith(Theories.class)
-public class TestBankDetailsRule extends TestCommonRuleTheories {
+public class TestSalaryRule extends TestCommonRuleTheories {
 
     @DataPoint
-    public static final BankDetailsRule rule = new BankDetailsRule();
+    public static final SalaryRule rule = new SalaryRule();
 
     @Theory
     public void testUnchangedWithEdit(Rule<Employee> rule, final Employee record, final User user, final Context context) {
@@ -36,17 +36,34 @@ public class TestBankDetailsRule extends TestCommonRuleTheories {
     }
 
     @Theory
-    public void testBankDetailsRedacted(Rule<Employee> rule, final Employee record, final User user, final Context context) {
-        // Given - doesn't satisfy EDIT rule
-        assumeFalse(context.getPurpose().equals(Purpose.EDIT.name()) && record.getUid().equals(user.getUserId()));
+    public void testUnchangedWithSalaryAnalysis(Rule<Employee> rule, final Employee record, final User user, final Context context) {
+        // Given - Purpose == SALARY_ANALYSIS
+        assumeThat(context.getPurpose(), is(Purpose.SALARY_ANALYSIS.name()));
 
         // When
         Employee recordWithRule = rule.apply(new Employee(record), user, context);
 
-        // Then - Expected
+        // Then
+        assertThat(recordWithRule, is(record));
+    }
+
+    @Theory
+    public void testSalaryRedacted(Rule<Employee> rule, final Employee record, final User user, final Context context) {
+        // Given - doesn't satisfy EDIT rule
+        assumeFalse(context.getPurpose().equals(Purpose.EDIT.name()) && record.getUid().equals(user.getUserId()));
+        // Given - Purpose != SALARY_ANALYSIS
+        assumeThat(context.getPurpose(), not(equalTo(Purpose.SALARY_ANALYSIS.name())));
+
+        // When
+        Employee recordWithRule = rule.apply(new Employee(record), user, context);
+
         Employee redactedRecord = new Employee(record);
-        redactedRecord.setBankDetails(null);
-        // Then - Observed
+        redactedRecord.setGrade(null);
+        redactedRecord.setSalaryAmount(-1);
+        redactedRecord.setSalaryBonus(-1);
+        redactedRecord.setTaxCode(null);
+        // Then
         assertThat(recordWithRule, is(redactedRecord));
     }
 }
+
