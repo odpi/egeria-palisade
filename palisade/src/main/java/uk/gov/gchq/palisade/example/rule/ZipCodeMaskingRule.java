@@ -23,19 +23,19 @@ import uk.gov.gchq.palisade.example.hrdatagenerator.types.Address;
 import uk.gov.gchq.palisade.example.hrdatagenerator.types.Employee;
 import uk.gov.gchq.palisade.rule.Rule;
 
-import java.util.Objects;
+import static java.util.Objects.requireNonNull;
 
 public class ZipCodeMaskingRule implements Rule<Employee> {
-
     public ZipCodeMaskingRule() {
     }
 
+    @Override
     public Employee apply(final Employee record, final User user, final Context context) {
         if (null == record) {
             return null;
         }
-        Objects.requireNonNull(user);
-        Objects.requireNonNull(context);
+        requireNonNull(user);
+        requireNonNull(context);
         String purpose = context.getPurpose();
 
         if (purpose.equals(Purpose.HEALTH_SCREENING.name())) {
@@ -63,7 +63,3 @@ public class ZipCodeMaskingRule implements Rule<Employee> {
         return maskedRecord;
     }
 }
-
-
-
-

@@ -9,7 +9,6 @@ import uk.gov.gchq.palisade.rule.Rule;
 import static java.util.Objects.requireNonNull;
 
 public class IdentityRule implements Rule<Employee> {
-
     public IdentityRule() {
     }
 
@@ -20,7 +19,7 @@ public class IdentityRule implements Rule<Employee> {
         }
         requireNonNull(user);
         requireNonNull(context);
-        final String purpose = context.getPurpose();
+        String purpose = context.getPurpose();
 
         if (purpose.isEmpty() || purpose.equals(Purpose.HEALTH_SCREENING.name())) {
             return record;

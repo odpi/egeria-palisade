@@ -9,7 +9,6 @@ import uk.gov.gchq.palisade.rule.Rule;
 import static java.util.Objects.requireNonNull;
 
 public class HireDateRule implements Rule<Employee> {
-
     public HireDateRule() {
     }
 
@@ -20,7 +19,7 @@ public class HireDateRule implements Rule<Employee> {
         }
         requireNonNull(user);
         requireNonNull(context);
-        final String purpose = context.getPurpose();
+        String purpose = context.getPurpose();
 
         if (purpose.equals(Purpose.HEALTH_SCREENING.name())) {
             return record;

@@ -28,6 +28,7 @@ public class SalaryRule implements Rule<Employee> {
     public SalaryRule() {
     }
 
+    @Override
     public Employee apply(final Employee record, final User user, final Context context) {
         if (null == record) {
             return null;

@@ -31,18 +31,18 @@ public class DutyOfCareRule implements Rule<Employee> {
     public DutyOfCareRule() {
     }
 
+    @Override
     public Employee apply(final Employee record, final User user, final Context context) {
         if (null == record) {
             return null;
         }
-
         requireNonNull(user);
         requireNonNull(context);
         String purpose = context.getPurpose();
         UserId userId = user.getUserId();
         Manager[] managers = record.getManager();
 
-        if ((EmployeeUtils.isManager(managers, userId).equals(Boolean.TRUE)) & purpose.equals(Purpose.DUTY_OF_CARE.name())) {
+        if (EmployeeUtils.isManager(managers, userId) && purpose.equals(Purpose.DUTY_OF_CARE.name())) {
             return record;
         } else if (purpose.equals(Purpose.EDIT.name()) && user.getUserId().equals(record.getUid())) {
             return record;
