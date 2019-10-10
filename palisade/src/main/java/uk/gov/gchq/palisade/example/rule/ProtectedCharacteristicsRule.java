@@ -25,15 +25,14 @@ import uk.gov.gchq.palisade.rule.Rule;
 import static java.util.Objects.requireNonNull;
 
 public class ProtectedCharacteristicsRule implements Rule<Employee> {
-
     public ProtectedCharacteristicsRule() {
     }
 
+    @Override
     public Employee apply(final Employee record, final User user, final Context context) {
         if (null == record) {
             return null;
         }
-
         requireNonNull(user);
         requireNonNull(context);
         String purpose = context.getPurpose();

@@ -28,6 +28,7 @@ public class OrgDetailsRule implements Rule<Employee> {
     public OrgDetailsRule() {
     }
 
+    @Override
     public Employee apply(final Employee record, final User user, final Context context) {
         if (null == record) {
             return null;
