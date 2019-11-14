@@ -17,7 +17,8 @@
 package uk.gov.gchq.palisade.example.common;
 
 public enum Purpose {
-    SALARY,
-    DUTY_OF_CARE,
-    STAFF_REPORT
+    SALARY_ANALYSIS,
+    HEALTH_SCREENING,
+    EDIT,
+    DUTY_OF_CARE
 }

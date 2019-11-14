@@ -24,29 +24,30 @@ import uk.gov.gchq.palisade.rule.Rule;
 
 import static java.util.Objects.requireNonNull;
 
-public class NationalityRule implements Rule<Employee> {
-
-    public NationalityRule() {
+public class OrgDetailsRule implements Rule<Employee> {
+    public OrgDetailsRule() {
     }
 
-    private Employee redactRecord(final Employee redactedRecord) {
-        redactedRecord.setNationality(null);
-        redactedRecord.setSex(null);
-        return redactedRecord;
-    }
-
+    @Override
     public Employee apply(final Employee record, final User user, final Context context) {
         if (null == record) {
             return null;
         }
-
         requireNonNull(user);
         requireNonNull(context);
         String purpose = context.getPurpose();
 
-        if (purpose.equals(Purpose.STAFF_REPORT.name())) {
+        if (purpose.equals(Purpose.SALARY_ANALYSIS.name())) {
+            return record;
+        } else if (purpose.equals(Purpose.EDIT.name()) && user.getUserId().equals(record.getUid())) {
             return record;
         }
         return redactRecord(record);
+    }
+
+    private Employee redactRecord(final Employee redactedRecord) {
+        redactedRecord.setDepartment(null);
+        redactedRecord.setManager(null);
+        return redactedRecord;
     }
 }

@@ -18,58 +18,48 @@ package uk.gov.gchq.palisade.example.rule;
 
 import uk.gov.gchq.palisade.Context;
 import uk.gov.gchq.palisade.User;
-import uk.gov.gchq.palisade.UserId;
+import uk.gov.gchq.palisade.example.common.Purpose;
 import uk.gov.gchq.palisade.example.hrdatagenerator.types.Address;
 import uk.gov.gchq.palisade.example.hrdatagenerator.types.Employee;
-import uk.gov.gchq.palisade.example.hrdatagenerator.types.Manager;
 import uk.gov.gchq.palisade.rule.Rule;
 
-import java.util.Objects;
-import java.util.Set;
+import static java.util.Objects.requireNonNull;
 
 public class ZipCodeMaskingRule implements Rule<Employee> {
-
     public ZipCodeMaskingRule() {
+    }
+
+    @Override
+    public Employee apply(final Employee record, final User user, final Context context) {
+        if (null == record) {
+            return null;
+        }
+        requireNonNull(user);
+        requireNonNull(context);
+        String purpose = context.getPurpose();
+
+        if (purpose.equals(Purpose.HEALTH_SCREENING.name())) {
+            return record;
+        } else if (purpose.equals(Purpose.SALARY_ANALYSIS.name())) {
+            return maskRecord(record);
+        } else if (purpose.equals(Purpose.EDIT.name()) && user.getUserId().equals(record.getUid())) {
+            return record;
+        }
+        return redactWholeAddress(record);
     }
 
     private Employee maskRecord(final Employee maskedRecord) {
         Address address = maskedRecord.getAddress();
         String zipCode = address.getZipCode();
-        String zipCodeRedacted = zipCode.substring(0, zipCode.length() - 1) + "*";
+        String zipCodeRedacted = zipCode.substring(0, zipCode.length() - 2);
         address.setStreetAddressNumber(null);
         address.setStreetName(null);
         address.setZipCode(zipCodeRedacted);
         return maskedRecord;
     }
 
-    private Employee maskWholeAddress(final Employee maskedRecord) {
+    private Employee redactWholeAddress(final Employee maskedRecord) {
         maskedRecord.setAddress(null);
         return maskedRecord;
     }
-
-    public Employee apply(final Employee record, final User user, final Context context) {
-        if (null == record) {
-            return null;
-        }
-        Objects.requireNonNull(user);
-        Objects.requireNonNull(context);
-        UserId userId = user.getUserId();
-        Manager[] managers = record.getManager();
-        Set<String> roles = user.getRoles();
-        String purpose = context.getPurpose();
-
-//        if ((EmployeeUtils.isManager(managers, userId).equals(Boolean.TRUE)) & purpose.equals(Purpose.DUTY_OF_CARE.name())) {
-            return record;
-//        }
-
-//        if (roles.contains(Role.ESTATES.name())) {
-//            return maskRecord(record);
-//        } else {
-//            return maskWholeAddress(record);
-//        }
-    }
 }
-
-
-
-
