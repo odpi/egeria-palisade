@@ -89,3 +89,5 @@ _site/**
 _layouts/**
 Gemfile
 
+demo-notebooks/.ipynb_checkpoints/*
+
