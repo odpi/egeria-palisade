@@ -80,8 +80,6 @@
         <failsafe.version>2.22.1</failsafe.version>
         <skip.surefire.tests>false</skip.surefire.tests>
         <skip.failsafe.tests>false</skip.failsafe.tests>
-        <checkstyle.phase>test</checkstyle.phase>
-        <checkstyle.plugin.version>3.0.0</checkstyle.plugin.version>
         <jcip.annotations.version>1.0-1</jcip.annotations.version>
         <testcontainers.version>1.10.5</testcontainers.version>
         <error.prone.version>2.3.3</error.prone.version>

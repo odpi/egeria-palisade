@@ -19,7 +19,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>uk.gov.gchq.palisade</groupId>
-        <artifactId>deployment</artifactId>
+        <artifactId>egeria-palisade</artifactId>
         <version>0.3.1-SNAPSHOT</version>
     </parent>
     <artifactId>local-docker</artifactId>
