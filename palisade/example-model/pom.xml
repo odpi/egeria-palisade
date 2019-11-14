@@ -21,7 +21,8 @@
         <groupId>uk.gov.gchq.palisade</groupId>
         <artifactId>palisade</artifactId>
         <version>0.3.1-SNAPSHOT</version>
-    </parent>cd
+    </parent>
+    
     <artifactId>example-model</artifactId>
 
     <dependencies>
@@ -199,5 +200,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
