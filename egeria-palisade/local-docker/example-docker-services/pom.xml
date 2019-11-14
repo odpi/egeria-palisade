@@ -177,7 +177,7 @@
                             <overwrite>true</overwrite>
                             <resources>
                                 <resource>
-                                    <directory>../../../example-model/target</directory>
+                                    <directory>../example-model/target</directory>
                                     <includes>
                                         <include>example-model-*-shaded.jar</include>
                                     </includes>
@@ -196,48 +196,9 @@
                             <overwrite>true</overwrite>
                             <resources>
                                 <resource>
-                                    <directory>../../../example-model/target</directory>
+                                    <directory>../example-model/target</directory>
                                     <includes>
                                         <include>example-model-*-shaded.jar</include>
-                                    </includes>
-                                </resource>
-                            </resources>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>copy-example-runner</id>
-                        <phase>generate-resources</phase>
-                        <goals>
-                            <goal>copy-resources</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>${project.basedir}/client/docker/bin</outputDirectory>
-                            <overwrite>true</overwrite>
-                            <resources>
-                                <resource>
-                                    <directory>../../../example-model/target</directory>
-                                    <includes>
-                                        <include>example-model-*-shaded.jar</include>
-                                    </includes>
-                                </resource>
-                            </resources>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>copy-rest-redirector</id>
-                        <phase>generate-resources</phase>
-                        <goals>
-                            <goal>copy-resources</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>${project.basedir}/rest-redirector/docker/bin</outputDirectory>
-                            <overwrite>true</overwrite>
-                            <resources>
-                                <resource>
-                                    <directory>../../../example-services/example-rest-redirector-service/target
-                                    </directory>
-                                    <includes>
-                                        <include>example-rest-redirector-service-*-shaded.jar</include>
                                     </includes>
                                 </resource>
                             </resources>
