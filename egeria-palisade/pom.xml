@@ -377,7 +377,6 @@
                         <include>**/*ITs.java</include>
                         <include>**/*IntegrationTests.java</include>
                     </includes>
-                    <environmentVariables/>
                     <systemPropertyVariables>
                         <restUserServicePort>${restUserServicePort}</restUserServicePort>
                         <restPolicyServicePort>${restPolicyServicePort}</restPolicyServicePort>
