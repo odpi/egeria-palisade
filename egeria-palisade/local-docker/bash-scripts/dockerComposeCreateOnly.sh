@@ -1,2 +1,4 @@
 #!/bin/bash
-docker-compose --no-ansi -f "../example-docker-services/docker-compose.yml" -p example create --build
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+. "$DIR/setScriptPath.sh"
+docker-compose --no-ansi -f "$EXAMPLE/local-docker/example-docker-services/docker-compose.yml" -p example create --build
