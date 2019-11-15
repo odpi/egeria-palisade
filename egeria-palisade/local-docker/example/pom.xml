@@ -7,7 +7,7 @@
         <version>0.3.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>example-docker-services</artifactId>
+    <artifactId>example</artifactId>
     <packaging>pom</packaging>
 
     <dependencies>

@@ -10,5 +10,5 @@ if [[ $(grep -c example_palisade <(echo $NETWORKS)) -lt 1 ]]; then
     exit 1
 fi
 
-docker build -t example-docker-runner "$EXAMPLE/local-docker/example-docker-services/client/"
+docker build -t example-docker-runner "$EXAMPLE/local-docker/example/client/"
 docker run --network=example_palisade_network --rm example-docker-runner | $EXAMPLE/deployment/bash-scripts/formatOutput.sh
