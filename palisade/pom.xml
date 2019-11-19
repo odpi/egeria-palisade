@@ -17,24 +17,19 @@
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
-    <groupId>uk.gov.gchq.palisade</groupId>
-    <artifactId>egeria-palisade</artifactId>
+    <parent>
+        <groupId>uk.gov.gchq.palisade</groupId>
+        <artifactId>palisade</artifactId>
+        <version>0.3.1-SNAPSHOT</version>
+    </parent>
+    <artifactId>example</artifactId>
     <packaging>pom</packaging>
-    <version>0.3.1-SNAPSHOT</version>
 
     <modules>
         <module>example-model</module>
         <module>example-rest-resource-service</module>
         <module>local-docker</module>
     </modules>
-
-    <licenses>
-        <license>
-            <name>Apache License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-        </license>
-    </licenses>
 
     <properties>
         <!-- Versions -->
@@ -105,7 +100,7 @@
     </properties>
 
     <dependencies>
-        <dependency>
+        <!--<dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>${slf4j.api.version}</version>
@@ -282,7 +277,7 @@
             <artifactId>hamcrest-all</artifactId>
             <version>${hamcrest.version}</version>
             <scope>test</scope>
-        </dependency>
+        </dependency>-->
     </dependencies>
 
     <build>
@@ -332,49 +327,6 @@
                     <excludes>
                         <exclude>${exclude.tests}</exclude>
                     </excludes>
-                    <systemPropertyVariables>
-                        <restUserServicePort>${restUserServicePort}</restUserServicePort>
-                        <restPolicyServicePort>${restPolicyServicePort}</restPolicyServicePort>
-                        <restRedirectorPort>${restRedirectorPort}</restRedirectorPort>
-                        <restConfigServicePort>${restConfigServicePort}</restConfigServicePort>
-                        <restDataServicePort>${restDataServicePort}</restDataServicePort>
-                        <restPalisadeMetricProviderPort>${restPalisadeMetricProviderPort}</restPalisadeMetricProviderPort>
-                        <restPalisadeServicePort>${restPalisadeServicePort}</restPalisadeServicePort>
-                        <restResourceServicePort>${restResourceServicePort}</restResourceServicePort>
-                        <log4j.configuration>
-                            file:${project.build.testOutputDirectory}/log4j.xml
-                        </log4j.configuration>
-                    </systemPropertyVariables>
-                    <environmentVariables>
-                        <PALISADE_REST_CONFIG_PATH>src/main/resources/configRest.json</PALISADE_REST_CONFIG_PATH>
-                    </environmentVariables>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-failsafe-plugin</artifactId>
-                <version>${failsafe.version}</version>
-                <executions>
-                    <execution>
-                        <id>integration-test</id>
-                        <goals>
-                            <goal>integration-test</goal>
-                            <goal>verify</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <skipITs>${skip.failsafe.tests}</skipITs>
-                    <argLine>${failsafeArgLine}</argLine>
-                    <excludes>
-                        <exclude>${exclude.tests}</exclude>
-                    </excludes>
-                    <includes>
-                        <include>**/*IntegrationTest.java</include>
-                        <include>**/*IT.java</include>
-                        <include>**/*ITs.java</include>
-                        <include>**/*IntegrationTests.java</include>
-                    </includes>
                     <systemPropertyVariables>
                         <restUserServicePort>${restUserServicePort}</restUserServicePort>
                         <restPolicyServicePort>${restPolicyServicePort}</restPolicyServicePort>
