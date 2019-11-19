@@ -19,13 +19,13 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>uk.gov.gchq.palisade</groupId>
-        <artifactId>egeria-palisade</artifactId>
+        <artifactId>example</artifactId>
         <version>0.3.1-SNAPSHOT</version>
     </parent>
     <artifactId>local-docker</artifactId>
     <packaging>pom</packaging>
 
     <modules>
-        <module>example</module>
+        <module>example-docker-services</module>
     </modules>
 </project>
