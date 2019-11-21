@@ -41,10 +41,10 @@ public abstract class TestCommonRuleTheories {
     };
     @DataPoints
     public static final Context[] contexts = new Context[] {
-            new Context().purpose(Purpose.SALARY_ANALYSIS.name()),
-            new Context().purpose(Purpose.HEALTH_SCREENING.name()),
-            new Context().purpose(Purpose.PROFILE_ACCESS.name()),
             new Context().purpose(Purpose.DIRECTORY_ACCESS.name()),
+            new Context().purpose(Purpose.PROFILE_ACCESS.name()),
+            new Context().purpose(Purpose.HEALTH_SCREENING.name()),
+            new Context().purpose(Purpose.SALARY_ANALYSIS.name()),
             new Context().purpose("")
     };
 
