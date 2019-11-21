@@ -26,7 +26,7 @@ public class ContactsRule implements Rule<Employee> {
 
         if (purpose.isEmpty()) {
             return maskRecord(record);
-        } else if (purpose.equals(Purpose.EDIT.name()) && user.getUserId().equals(record.getUid())) {
+        } else if (purpose.equals(Purpose.PROFILE_ACCESS.name()) && user.getUserId().equals(record.getUid())) {
             return record;
         }
         return redactRecord(record);

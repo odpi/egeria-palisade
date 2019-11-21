@@ -39,7 +39,7 @@ public class ProtectedCharacteristicsRule implements Rule<Employee> {
 
         if (purpose.equals(Purpose.SALARY_ANALYSIS.name())) {
             return record;
-        } else if (purpose.equals(Purpose.EDIT.name()) && user.getUserId().equals(record.getUid())) {
+        } else if (purpose.equals(Purpose.PROFILE_ACCESS.name()) && user.getUserId().equals(record.getUid())) {
             return record;
         }
         return redactRecord(record);
