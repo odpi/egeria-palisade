@@ -27,7 +27,7 @@ public abstract class TestCommonRuleTheories {
     // An extending class must provide its Rule as a @DataPoint
 
     private static final Random random = new Random(1);
-    private static final Context editContext = new Context().purpose(Purpose.EDIT.name());
+    private static final Context profileAccessContext = new Context().purpose(Purpose.PROFILE_ACCESS.name());
 
     @DataPoints
     public static final Employee[] records = new Employee[] {
@@ -43,8 +43,8 @@ public abstract class TestCommonRuleTheories {
     public static final Context[] contexts = new Context[] {
             new Context().purpose(Purpose.SALARY_ANALYSIS.name()),
             new Context().purpose(Purpose.HEALTH_SCREENING.name()),
-            new Context().purpose(Purpose.EDIT.name()),
-            new Context().purpose(Purpose.DUTY_OF_CARE.name()),
+            new Context().purpose(Purpose.PROFILE_ACCESS.name()),
+            new Context().purpose(Purpose.DIRECTORY_ACCESS.name()),
             new Context().purpose("")
     };
 
@@ -86,7 +86,7 @@ public abstract class TestCommonRuleTheories {
 
     @Theory
     public void testNullUser(Rule<Employee> rule, final Employee record, final Context context) throws NullPointerException {
-        // Given - Context editContext
+        // Given - Context profileViewContext
 
         // Then (expected)
         thrown.expect(NullPointerException.class);
