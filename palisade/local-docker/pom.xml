@@ -26,6 +26,6 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>example-docker-services</module>
+        <module>example</module>
     </modules>
 </project>
