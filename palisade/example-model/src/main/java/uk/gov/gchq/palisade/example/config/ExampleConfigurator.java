@@ -17,6 +17,7 @@ package uk.gov.gchq.palisade.example.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import uk.gov.gchq.palisade.client.ClientConfiguredServices;
 import uk.gov.gchq.palisade.config.service.ConfigUtils;
 import uk.gov.gchq.palisade.config.service.ConfigurationService;
@@ -31,8 +32,8 @@ import uk.gov.gchq.palisade.util.StreamUtil;
 
 import java.io.InputStream;
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.concurrent.CompletableFuture;
 
 /**
@@ -42,6 +43,12 @@ public final class ExampleConfigurator {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ExampleConfigurator.class);
     private final String file;
+
+    public ExampleConfigurator(final ClientConfiguredServices services, final String file) {
+        URI absoluteFileURI = ExampleFileUtil.convertToFileURI(file);
+        this.file = absoluteFileURI.toString();
+        initialiseExample(services);
+    }
 
     /**
      * Establishes policies and details for the examples and writes these into the configuration service.
@@ -55,18 +62,12 @@ public final class ExampleConfigurator {
         new ExampleConfigurator(cs, args[0]);
     }
 
-    public ExampleConfigurator(final ClientConfiguredServices services, final String file) {
-        URI absoluteFileURI = ExampleFileUtil.convertToFileURI(file);
-        this.file = absoluteFileURI.toString();
-        initialiseExample(services);
-    }
-
     private void initialiseExample(final ClientConfiguredServices services) {
         // The user authorisation owner or sys admin needs to add the user
         final UserService userService = services.getUserService();
 
         String[] users = new String[]{"reggie mint", "tom tally", "sally counter", "harry hopeful", "jules keeper", "faith broker", "ivan padlock", "erin overview", "peter profile", "garry geeke", "polly tasker", "bob nitter", "lemmie stage", "stew faster", "callie quartile", "tessa tube", "tania tidie", "angela cummings", "grant able", "julie stitched", "robbie records", "nancy noah", "des signa", "sidney seeker"};
-        Collection<CompletableFuture> requestsList = Collections.EMPTY_LIST;
+        Collection<CompletableFuture> requestsList = new ArrayList<>();
         for (String user : users) {
             final CompletableFuture<Boolean> addUser = userService.addUser(
                     new AddUserRequest().user(ExampleUsers.getUser(user))
