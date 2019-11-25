@@ -22,9 +22,9 @@ public class TestDutyOfCareRule extends TestCommonRuleTheories {
     public static final DutyOfCareRule rule = new DutyOfCareRule();
 
     @Theory
-    public void testUnchangedWithEdit(Rule<Employee> rule, final Employee record, final User user, final Context context) {
-        // Given - Purpose == EDIT
-        assumeThat(context.getPurpose(), is(Purpose.EDIT.name()));
+    public void testUnchangedWithProfileAccess(Rule<Employee> rule, final Employee record, final User user, final Context context) {
+        // Given - Purpose == PROFILE_ACCESS
+        assumeThat(context.getPurpose(), is(Purpose.PROFILE_ACCESS.name()));
         // Given - Employee.Uid == User.Uid
         assumeThat(record.getUid(), is(user.getUserId()));
 
@@ -37,8 +37,8 @@ public class TestDutyOfCareRule extends TestCommonRuleTheories {
 
     @Theory
     public void testUnchangedWithDutyOfCare(Rule<Employee> rule, final Employee record, final User user, final Context context) {
-        // Given - Purpose == DUTY_OF_CARE
-        assumeThat(context.getPurpose(), is(Purpose.DUTY_OF_CARE.name()));
+        // Given - Purpose == DIRECTORY_ACCESS
+        assumeThat(context.getPurpose(), is(Purpose.DIRECTORY_ACCESS.name()));
         // Given - User.Uid in Employee.manager group
         assumeTrue(EmployeeUtils.isManager(record.getManager(), user.getUserId()));
 
@@ -51,10 +51,10 @@ public class TestDutyOfCareRule extends TestCommonRuleTheories {
 
     @Theory
     public void testEmergencyContactsRedacted(Rule<Employee> rule, final Employee record, final User user, final Context context) {
-        // Given - doesn't satisfy EDIT rule
-        assumeFalse(context.getPurpose().equals(Purpose.EDIT.name()) && record.getUid().equals(user.getUserId()));
-        // Given - doesn't satisfy DUTY_OF_CARE rule
-        assumeFalse(context.getPurpose().equals(Purpose.DUTY_OF_CARE.name())
+        // Given - doesn't satisfy PROFILE_ACCESS rule
+        assumeFalse(context.getPurpose().equals(Purpose.PROFILE_ACCESS.name()) && record.getUid().equals(user.getUserId()));
+        // Given - doesn't satisfy DIRECTORY_ACCESS rule
+        assumeFalse(context.getPurpose().equals(Purpose.DIRECTORY_ACCESS.name())
                 && EmployeeUtils.isManager(record.getManager(), user.getUserId()));
 
         // When

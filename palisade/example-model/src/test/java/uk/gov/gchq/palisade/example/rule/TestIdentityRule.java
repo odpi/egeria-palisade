@@ -23,9 +23,9 @@ public class TestIdentityRule extends TestCommonRuleTheories {
     public static final IdentityRule rule = new IdentityRule();
 
     @Theory
-    public void testUnchangedWithEdit(Rule<Employee> rule, final Employee record, final User user, final Context context) {
-        // Given - Purpose == EDIT
-        assumeThat(context.getPurpose(), is(Purpose.EDIT.name()));
+    public void testUnchangedWithProfileAccess(Rule<Employee> rule, final Employee record, final User user, final Context context) {
+        // Given - Purpose == PROFILE_ACCESS
+        assumeThat(context.getPurpose(), is(Purpose.PROFILE_ACCESS.name()));
         // Given - Employee.Uid == User.Uid
         assumeThat(record.getUid(), is(user.getUserId()));
 
@@ -50,8 +50,8 @@ public class TestIdentityRule extends TestCommonRuleTheories {
 
     @Theory
     public void testIdentityRedacted(Rule<Employee> rule, final Employee record, final User user, Context context) {
-        // Given - doesn't satisfy EDIT rule
-        assumeFalse(context.getPurpose().equals(Purpose.EDIT.name()) && record.getUid().equals(user.getUserId()));
+        // Given - doesn't satisfy PROFILE_ACCESS rule
+        assumeFalse(context.getPurpose().equals(Purpose.PROFILE_ACCESS.name()) && record.getUid().equals(user.getUserId()));
         // Given - Purpose != HEALTH_SCREENING or ""
         assumeThat(context.getPurpose(), not(equalTo(Purpose.HEALTH_SCREENING.name())));
         assumeThat(context.getPurpose(), not(isEmptyString()));

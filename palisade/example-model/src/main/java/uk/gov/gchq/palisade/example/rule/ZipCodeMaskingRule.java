@@ -42,7 +42,7 @@ public class ZipCodeMaskingRule implements Rule<Employee> {
             return record;
         } else if (purpose.equals(Purpose.SALARY_ANALYSIS.name())) {
             return maskRecord(record);
-        } else if (purpose.equals(Purpose.EDIT.name()) && user.getUserId().equals(record.getUid())) {
+        } else if (purpose.equals(Purpose.PROFILE_ACCESS.name()) && user.getUserId().equals(record.getUid())) {
             return record;
         }
         return redactWholeAddress(record);

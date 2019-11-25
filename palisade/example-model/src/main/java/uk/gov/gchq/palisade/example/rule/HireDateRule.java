@@ -23,7 +23,7 @@ public class HireDateRule implements Rule<Employee> {
 
         if (purpose.equals(Purpose.HEALTH_SCREENING.name())) {
             return record;
-        } else if (purpose.equals(Purpose.EDIT.name()) && user.getUserId().equals(record.getUid())) {
+        } else if (purpose.equals(Purpose.PROFILE_ACCESS.name()) && user.getUserId().equals(record.getUid())) {
             return record;
         }
         return redactRecord(record);
