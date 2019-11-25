@@ -23,10 +23,13 @@ public class IdentityRule implements Rule<Employee> {
 
         if (purpose.isEmpty() || purpose.equals(Purpose.HEALTH_SCREENING.name())) {
             return record;
+        } else if (purpose.equals(Purpose.DIRECTORY_ACCESS.name())) {
+            return record;
         } else if (purpose.equals(Purpose.PROFILE_ACCESS.name()) && user.getUserId().equals(record.getUid())) {
             return record;
+        } else {
+            return redactRecord(record);
         }
-        return redactRecord(record);
     }
 
     private Employee redactRecord(final Employee record) {

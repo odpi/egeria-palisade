@@ -38,8 +38,8 @@ public class TestContactsRule extends TestCommonRuleTheories {
 
     @Theory
     public void testContactsMasked(Rule<Employee> rule, final Employee record, final User user, final Context context) {
-        // Given - Purpose == ""
-        assumeThat(context.getPurpose(), isEmptyString());
+        // Given - Purpose == DIRECTORY_ACCESS
+        assumeThat(context.getPurpose(), is(Purpose.DIRECTORY_ACCESS.name()));
 
         // When
         Employee recordWithRule = rule.apply(new Employee(record), user, context);

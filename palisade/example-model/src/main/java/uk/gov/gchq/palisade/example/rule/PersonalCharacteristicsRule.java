@@ -8,8 +8,8 @@ import uk.gov.gchq.palisade.rule.Rule;
 
 import static java.util.Objects.requireNonNull;
 
-public class HireDateRule implements Rule<Employee> {
-    public HireDateRule() {
+public class PersonalCharacteristicsRule {
+    public PersonalCharacteristicsRule() {
     }
 
     @Override
@@ -21,16 +21,17 @@ public class HireDateRule implements Rule<Employee> {
         requireNonNull(context);
         String purpose = context.getPurpose();
 
-        if (purpose.equals(Purpose.HEALTH_SCREENING.name()) || purpose.equals(Purpose.SALARY_ANALYSIS.name())) {
+        if (purpose.equals(Purpose.PROFILE_ACCESS.name()) && user.getUserId().equals(record.getUid())) {
             return record;
-        } else if (purpose.equals(Purpose.PROFILE_ACCESS.name()) && user.getUserId().equals(record.getUid())) {
-            return record;
+        } else {
+            return redactRecord(record);
         }
-        return redactRecord(record);
     }
 
-    private Employee redactRecord(final Employee record) {
-        record.setHireDate(null);
-        return record;
+    private Employee redactRecord(final Employee redactedRecord) {
+        redactedRecord.setBankDetails(null);
+        redactedRecord.setEmergencyContacts(null);
+        redactedRecord.setTaxCode(null);
+        return redactedRecord;
     }
 }

@@ -24,7 +24,7 @@ public class ContactsRule implements Rule<Employee> {
         requireNonNull(context);
         String purpose = context.getPurpose();
 
-        if (purpose.isEmpty()) {
+        if (purpose.isEmpty() || purpose.equals(Purpose.DIRECTORY_ACCESS.name())) {
             return maskRecord(record);
         } else if (purpose.equals(Purpose.PROFILE_ACCESS.name()) && user.getUserId().equals(record.getUid())) {
             return record;

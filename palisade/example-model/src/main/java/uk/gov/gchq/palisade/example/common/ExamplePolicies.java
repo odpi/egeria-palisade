@@ -17,16 +17,15 @@
 package uk.gov.gchq.palisade.example.common;
 
 import uk.gov.gchq.palisade.example.hrdatagenerator.types.Employee;
-import uk.gov.gchq.palisade.example.rule.BankDetailsRule;
+import uk.gov.gchq.palisade.example.rule.AddressRule;
 import uk.gov.gchq.palisade.example.rule.ContactsRule;
 import uk.gov.gchq.palisade.example.rule.DutyOfCareRule;
-import uk.gov.gchq.palisade.example.rule.DateOfBirthRule;
 import uk.gov.gchq.palisade.example.rule.HireDateRule;
 import uk.gov.gchq.palisade.example.rule.IdentityRule;
 import uk.gov.gchq.palisade.example.rule.OrgDetailsRule;
+import uk.gov.gchq.palisade.example.rule.PersonalCharacteristicsRule;
 import uk.gov.gchq.palisade.example.rule.ProtectedCharacteristicsRule;
-import uk.gov.gchq.palisade.example.rule.SalaryRule;
-import uk.gov.gchq.palisade.example.rule.ZipCodeMaskingRule;
+import uk.gov.gchq.palisade.example.rule.WorkLocationRule;
 import uk.gov.gchq.palisade.example.util.ExampleFileUtil;
 import uk.gov.gchq.palisade.policy.service.Policy;
 import uk.gov.gchq.palisade.policy.service.request.SetResourcePolicyRequest;
@@ -72,43 +71,36 @@ public final class ExamplePolicies {
                 .policy(new Policy<Employee>()
                         .owner(ExampleUsers.getFaithBroker())
                         .recordLevelRule(
-                                "1-Bank details rule",
-                                new BankDetailsRule()
+                                "1-Personal characteristics Rule",
+                                new PersonalCharacteristicsRule()
                         )
                         .recordLevelRule(
-                                "2-Emergency numbers only available for duty of care purpose",
-                                new DutyOfCareRule()
-                        )
-                        .recordLevelRule(
-                                "3-Protected characteristics rule",
+                                "2-Protected characteristics rule",
                                 new ProtectedCharacteristicsRule()
                         )
                         .recordLevelRule(
-                                "4-Home address rule",
-                                new ZipCodeMaskingRule()
+                                "3-Organisation details rule",
+                                new OrgDetailsRule()
                         )
                         .recordLevelRule(
-                                "5-Date of birth rule",
-                                new DateOfBirthRule()
-                        )
-                        .recordLevelRule(
-                                "6-Employee contacts rule",
-                                new ContactsRule()
-                        )
-                        .recordLevelRule(
-                                "7-Hire date rule",
-                                new HireDateRule()
-                        )
-                        .recordLevelRule(
-                                "8-Identity rule",
+                                "4-Identity rule",
                                 new IdentityRule()
                         )
                         .recordLevelRule(
-                                "9-Organisation details rule",
-                                new OrgDetailsRule()
-                        ).recordLevelRule(
-                                "10-Salary rule",
-                                new SalaryRule()
+                                "5-Hire date rule",
+                                new HireDateRule()
+                        )
+                        .recordLevelRule(
+                                "6-Contact details rule",
+                                new ContactsRule()
+                        )
+                        .recordLevelRule(
+                                "7-Address rule",
+                                new AddressRule()
+                        )
+                        .recordLevelRule(
+                                "8-Work location rule",
+                                new WorkLocationRule()
                         )
                 );
     }
