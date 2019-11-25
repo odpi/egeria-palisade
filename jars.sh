@@ -8,10 +8,12 @@ set -e
 
 # Start with a clean build space
 (cd palisade && mvn clean)
-(cd egeria-palisade/palisade && mvn clean)
 
 # Build palisade without examples supplying most common dependencies except Employee datatype
 (cd palisade && mvn install -Pquick)
+
+# Start with a clean build space
+(cd egeria-palisade/palisade && mvn clean)
 
 # Build hr-data-generator supplying Employee datatype
 (cd palisade && mvn install -pl example/hr-data-generator -Dmaven.test.skip=true)
@@ -20,7 +22,7 @@ set -e
 (cd egeria-palisade/palisade && mvn install -pl example-model -Dmaven.test.skip=true)
 
 # Build palisade example-services supplying Example REST services
-(cd palisade && mvn install -pl example/example-services -Dmaven.test.skip=true)
+(cd palisade && mvn install -pl example/example-services -amd -Dmaven.test.skip=true)
 
 # Build egeria-palisade supplying docker deployment etc.
 (cd egeria-palisade/palisade && mvn install -Dmaven.test.skip=true)

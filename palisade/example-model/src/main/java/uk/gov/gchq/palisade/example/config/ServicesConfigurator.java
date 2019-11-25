@@ -17,7 +17,6 @@
 package uk.gov.gchq.palisade.example.config;
 
 import org.apache.hadoop.conf.Configuration;
-import org.odpi.openmetadata.frameworks.connectors.ffdc.InvalidParameterException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -38,7 +37,6 @@ import uk.gov.gchq.palisade.redirect.service.impl.RESTRedirector;
 import uk.gov.gchq.palisade.redirect.service.impl.SimpleRandomRedirector;
 import uk.gov.gchq.palisade.resource.service.ResourceService;
 import uk.gov.gchq.palisade.resource.service.impl.EgeriaResourceService;
-import uk.gov.gchq.palisade.resource.service.impl.HadoopResourceService;
 import uk.gov.gchq.palisade.service.PalisadeService;
 import uk.gov.gchq.palisade.service.Service;
 import uk.gov.gchq.palisade.service.ServiceState;
@@ -184,12 +182,9 @@ public class ServicesConfigurator {
      */
     protected ResourceService createResourceServiceForServer() {
         try {
-            Configuration conf = createHadoopConfiguration();
-            HadoopResourceService hadoopResourceService = new HadoopResourceService().conf(conf).cacheService(clientServices.createInternalCacheService());
-            hadoopResourceService.addDataService(clientServices.createClientDataServiceConnection());
-            EgeriaResourceService egeriaResourceService = new EgeriaResourceService("cocoMDS3","http://localhost:18081", hadoopResourceService);
+            EgeriaResourceService egeriaResourceService = new EgeriaResourceService("cocoMDS3","http://localhost:18081");
             return egeriaResourceService;
-        } catch (IOException | InvalidParameterException e) {
+        } catch (Throwable e) {
             throw new RuntimeException(e);
         }
     }
