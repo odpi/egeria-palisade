@@ -58,8 +58,12 @@ public class TestProtectedCharacteristicsRule extends TestCommonRuleTheories {
         Employee recordWithRule = rule.apply(new Employee(record), user, context);
 
         Employee redactedRecord = new Employee(record);
+        redactedRecord.setDateOfBirth(null);
+        redactedRecord.setGrade(null);
         redactedRecord.setNationality(null);
         redactedRecord.setSex(null);
+        redactedRecord.setSalaryAmount(-1);
+        redactedRecord.setSalaryBonus(-1);
         // Then
         assertThat(recordWithRule, is(redactedRecord));
     }
