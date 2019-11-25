@@ -49,6 +49,18 @@ public class TestHireDateRule extends TestCommonRuleTheories {
     }
 
     @Theory
+    public void testUnchangedWithSalaryAnalysis(Rule<Employee> rule, final Employee record, final User user, final Context context) {
+        // Given - Purpose == SALARY_ANALYSIS
+        assumeThat(context.getPurpose(), is(Purpose.SALARY_ANALYSIS.name()));
+
+        // When
+        Employee recordWithRule = rule.apply(new Employee(record), user, context);
+
+        // Then
+        assertThat(recordWithRule, is(record));
+    }
+
+    @Theory
     public void testHireDateRedacted(Rule<Employee> rule, final Employee record, final User user, Context context) {
         // Given - doesn't satisfy DIRECTORY_ACCESS rule
         assumeFalse(context.getPurpose().equals(Purpose.PROFILE_ACCESS.name()) && record.getUid().equals(user.getUserId()));

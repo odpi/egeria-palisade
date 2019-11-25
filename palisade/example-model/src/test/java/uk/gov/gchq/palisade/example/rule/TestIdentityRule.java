@@ -49,6 +49,18 @@ public class TestIdentityRule extends TestCommonRuleTheories {
     }
 
     @Theory
+    public void testUnchangedWithDirectoryAccess(Rule<Employee> rule, final Employee record, final User user, final Context context) {
+        // Given - Purpose == DIRECTORY_ACCESS
+        assumeThat(context.getPurpose(), is(Purpose.DIRECTORY_ACCESS.name()));
+
+        // When
+        Employee recordWithRule = rule.apply(new Employee(record), user, context);
+
+        // Then
+        assertThat(recordWithRule, is(record));
+    }
+
+    @Theory
     public void testIdentityRedacted(Rule<Employee> rule, final Employee record, final User user, Context context) {
         // Given - doesn't satisfy PROFILE_ACCESS rule
         assumeFalse(context.getPurpose().equals(Purpose.PROFILE_ACCESS.name()) && record.getUid().equals(user.getUserId()));

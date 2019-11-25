@@ -4,6 +4,7 @@ import org.junit.experimental.theories.DataPoint;
 import org.junit.experimental.theories.Theories;
 import org.junit.experimental.theories.Theory;
 import org.junit.runner.RunWith;
+
 import uk.gov.gchq.palisade.Context;
 import uk.gov.gchq.palisade.User;
 import uk.gov.gchq.palisade.example.common.Purpose;
@@ -16,10 +17,10 @@ import static org.junit.Assume.assumeFalse;
 import static org.junit.Assume.assumeThat;
 
 @RunWith(Theories.class)
-public class TestProtectedCharacteristicsRule extends TestCommonRuleTheories {
+public class TestAddressRule extends TestCommonRuleTheories {
 
     @DataPoint
-    public static final ProtectedCharacteristicsRule rule = new ProtectedCharacteristicsRule();
+    public static final AddressRule rule = new AddressRule();
 
     @Theory
     public void testUnchangedWithProfileAccess(Rule<Employee> rule, final Employee record, final User user, final Context context) {
@@ -36,35 +37,35 @@ public class TestProtectedCharacteristicsRule extends TestCommonRuleTheories {
     }
 
     @Theory
-    public void testUnchangedWithSalaryAnalysis(Rule<Employee> rule, final Employee record, final User user, final Context context) {
-        // Given - Purpose == SALARY_ANALYSIS
-        assumeThat(context.getPurpose(), is(Purpose.SALARY_ANALYSIS.name()));
+    public void testUnchangedWithHealthPurpose(Rule<Employee> rule, final Employee record, final User user, final Context context) {
+        // Given - Purpose == HEALTH_SCREENING
+        assumeThat(context.getPurpose(), is(Purpose.HEALTH_SCREENING.name()));
 
         // When
         Employee recordWithRule = rule.apply(new Employee(record), user, context);
 
+        Employee maskedRecord = new Employee(record);
+        maskedRecord.setAddress(null);
+        maskedRecord.setWorkLocation(recordWithRule.getWorkLocation());
         // Then
-        assertThat(recordWithRule, is(record));
+        assertThat(recordWithRule.getAddress(), not(equalTo(record.getAddress())));
+        assertThat(recordWithRule, is(maskedRecord));
     }
 
     @Theory
-    public void testProtectedCharacteristicsRedacted(Rule<Employee> rule, final Employee record, final User user, Context context) {
-        // Given - doesn't satisfy PROFILE_ACCESS rule
+    public void testAddressRedacted(Rule<Employee> rule, final Employee record, final User user, final Context context) {
+        // Given - Doesn't satisfy PROFILE_ACCESS rule
         assumeFalse(context.getPurpose().equals(Purpose.PROFILE_ACCESS.name()) && record.getUid().equals(user.getUserId()));
-        // Given - Purpose != SALARY_ANALYSIS
-        assumeThat(context.getPurpose(), not(equalTo(Purpose.SALARY_ANALYSIS.name())));
+        // Given - Purpose != ""
+        assumeThat(context.getPurpose(), not(isEmptyString()));
 
         // When
         Employee recordWithRule = rule.apply(new Employee(record), user, context);
 
+        // Then - Expected
         Employee redactedRecord = new Employee(record);
-        redactedRecord.setDateOfBirth(null);
-        redactedRecord.setGrade(null);
-        redactedRecord.setNationality(null);
-        redactedRecord.setSex(null);
-        redactedRecord.setSalaryAmount(-1);
-        redactedRecord.setSalaryBonus(-1);
-        // Then
+        redactedRecord.setAddress(null);
+        // Then - Observed
         assertThat(recordWithRule, is(redactedRecord));
     }
 }

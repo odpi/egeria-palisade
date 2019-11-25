@@ -46,8 +46,12 @@ public class ProtectedCharacteristicsRule implements Rule<Employee> {
     }
 
     private Employee redactRecord(final Employee redactedRecord) {
+        redactedRecord.setDateOfBirth(null);
+        redactedRecord.setGrade(null);
         redactedRecord.setNationality(null);
         redactedRecord.setSex(null);
+        redactedRecord.setSalaryAmount(-1);
+        redactedRecord.setSalaryBonus(-1);
         return redactedRecord;
     }
 }
