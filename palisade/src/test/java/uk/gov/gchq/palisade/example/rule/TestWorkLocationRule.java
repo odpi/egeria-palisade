@@ -4,6 +4,7 @@ import org.junit.experimental.theories.DataPoint;
 import org.junit.experimental.theories.Theories;
 import org.junit.experimental.theories.Theory;
 import org.junit.runner.RunWith;
+
 import uk.gov.gchq.palisade.Context;
 import uk.gov.gchq.palisade.User;
 import uk.gov.gchq.palisade.example.common.Purpose;
@@ -16,10 +17,10 @@ import static org.junit.Assume.assumeFalse;
 import static org.junit.Assume.assumeThat;
 
 @RunWith(Theories.class)
-public class TestSalaryRule extends TestCommonRuleTheories {
+public class TestWorkLocationRule extends TestCommonRuleTheories {
 
     @DataPoint
-    public static final SalaryRule rule = new SalaryRule();
+    public static final WorkLocationRule rule = new WorkLocationRule();
 
     @Theory
     public void testUnchangedWithProfileAccess(Rule<Employee> rule, final Employee record, final User user, final Context context) {
@@ -36,34 +37,33 @@ public class TestSalaryRule extends TestCommonRuleTheories {
     }
 
     @Theory
-    public void testUnchangedWithSalaryAnalysis(Rule<Employee> rule, final Employee record, final User user, final Context context) {
+    public void testUnchangedWithHealthScreening(Rule<Employee> rule, final Employee record, final User user, final Context context) {
+        // Given - Purpose == HEALTH_SCREENING
+        assumeThat(context.getPurpose(), is(Purpose.HEALTH_SCREENING.name()));
+
+        // When
+        Employee recordWithRule = rule.apply(new Employee(record), user, context);
+
+        // Then
+        assertThat(recordWithRule, equalTo(record));
+    }
+
+    @Theory
+    public void testWorkLocationAddressRedacted(Rule<Employee> rule, final Employee record, final User user, final Context context) {
         // Given - Purpose == SALARY_ANALYSIS
         assumeThat(context.getPurpose(), is(Purpose.SALARY_ANALYSIS.name()));
 
         // When
         Employee recordWithRule = rule.apply(new Employee(record), user, context);
 
-        // Then
-        assertThat(recordWithRule, is(record));
-    }
+        // Then - Expected
+        Employee alteredRecord = new Employee(record);
+        WorkLocation location = alteredRecord.getWorkLocation();
+        location.setAddress(null);
+        alteredRecord.setWorkLocation(location);
 
-    @Theory
-    public void testSalaryRedacted(Rule<Employee> rule, final Employee record, final User user, final Context context) {
-        // Given - doesn't satisfy PROFILE_ACCESS rule
-        assumeFalse(context.getPurpose().equals(Purpose.PROFILE_ACCESS.name()) && record.getUid().equals(user.getUserId()));
-        // Given - Purpose != SALARY_ANALYSIS
-        assumeThat(context.getPurpose(), not(equalTo(Purpose.SALARY_ANALYSIS.name())));
-
-        // When
-        Employee recordWithRule = rule.apply(new Employee(record), user, context);
-
-        Employee redactedRecord = new Employee(record);
-        redactedRecord.setGrade(null);
-        redactedRecord.setSalaryAmount(-1);
-        redactedRecord.setSalaryBonus(-1);
-        redactedRecord.setTaxCode(null);
-        // Then
-        assertThat(recordWithRule, is(redactedRecord));
+        // Then - Observed
+        assertThat(recordWithRule.getWorkLocation(), not(equalTo(record.getWorkLocation())));
+        assertThat(recordWithRule, is(alteredRecord));
     }
 }
-
