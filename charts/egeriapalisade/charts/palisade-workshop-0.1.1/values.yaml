@@ -1,0 +1,124 @@
+affinity: {}
+configservice:
+  image:
+    pullPolicy: IfNotPresent
+    repository: example_config-service
+    tag: latest
+  replicas: 1
+  resources:
+    limits:
+      cpu: 0.5
+      memory: 2Gi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+configureexample:
+  hostpath: /mnt/c/data
+  inputfilepath: /data
+  image:
+    pullPolicy: IfNotPresent
+    repository: example_configure-example
+    tag: latest
+configureservices:
+  image:
+    pullPolicy: IfNotPresent
+    repository: example_configure-services
+    tag: latest
+dataservice:
+  image:
+    pullPolicy: IfNotPresent
+    repository: example_data-service
+    tag: latest
+  replicas: 1
+  resources:
+    limits:
+      cpu: 0.5
+      memory: 10Gi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+etcd:
+  image:
+    pullPolicy: IfNotPresent
+    repository: example_etcd
+    tag: latest
+  replicas: 1
+  resources:
+    limits:
+      cpu: 0.25
+      memory: 1Gi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+fullnameOverride: ""
+image:
+  pullPolicy: IfNotPresent
+  repository: nginx
+  tag: stable
+ingress:
+  annotations: {}
+  enabled: false
+  hosts:
+  - host: chart-example.local
+    paths: []
+  tls: []
+nameOverride: ""
+nodeSelector: {}
+palisadeservice:
+  image:
+    pullPolicy: IfNotPresent
+    repository: example_palisade-service
+    tag: latest
+  replicas: 1
+  resources:
+    limits:
+      cpu: 0.5
+      memory: 2Gi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+policyservice:
+  image:
+    pullPolicy: IfNotPresent
+    repository: example_policy-service
+    tag: latest
+  replicas: 1
+  resources:
+    limits:
+      cpu: 0.5
+      memory: 2Gi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+replicaCount: 1
+resources: {}
+resourceservice:
+  image:
+    pullPolicy: IfNotPresent
+    repository: example_resource-service
+    tag: latest
+  replicas: 1
+  resources:
+    limits:
+      cpu: 0.5
+      memory: 2Gi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+service:
+  port: 80
+  type: ClusterIP
+tolerations: []
+userservice:
+  image:
+    pullPolicy: IfNotPresent
+    repository: example_user-service
+    tag: latest
+  replicas: 1
+  resources:
+    limits:
+      cpu: 0.5
+      memory: 2Gi
+    requests:
+      cpu: 100m
+      memory: 128Mi

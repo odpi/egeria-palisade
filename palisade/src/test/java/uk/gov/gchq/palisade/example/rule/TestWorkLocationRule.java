@@ -13,7 +13,6 @@ import uk.gov.gchq.palisade.rule.Rule;
 
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assume.assumeFalse;
 import static org.junit.Assume.assumeThat;
 
 @RunWith(Theories.class)
