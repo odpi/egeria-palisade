@@ -182,10 +182,10 @@ public class ServicesConfigurator {
      */
     protected ResourceService createResourceServiceForServer() {
         try {
-            EgeriaResourceService egeriaResourceService = new EgeriaResourceService("cocoMDS3","http://localhost:18081");
-            return egeriaResourceService;
+            return new EgeriaResourceService("cocoMDS3","http://localhost:18081");
         } catch (Throwable e) {
-            throw new RuntimeException(e);
+            LOGGER.error(e.getMessage());
+            return null;
         }
     }
 

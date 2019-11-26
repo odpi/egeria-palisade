@@ -62,13 +62,13 @@ public class RestExample {
 
         LOGGER.info("");
         LOGGER.info("reggieMint [ " + reggieMint.toString() + " } is reading the Employee file with a purpose of DUTY_OF_CARE...");
-        final Stream<Employee> reggieMintResults2 = client.read(sourceFile, reggieMint.getUserId().getId(), Purpose.DUTY_OF_CARE.name());
+        final Stream<Employee> reggieMintResults2 = client.read(sourceFile, reggieMint.getUserId().getId(), Purpose.COMPANY_DIRECTORY.name());
         LOGGER.info("reggieMint got back: ");
         reggieMintResults2.map(Object::toString).forEach(LOGGER::info);
 
         LOGGER.info("");
         LOGGER.info("tomTally [ " + tomTally.toString() + " } is reading the Employee file with a purpose of DUTY_OF_CARE...");
-        final Stream<Employee> tomTallyResults1 = client.read(sourceFile, tomTally.getUserId().getId(), Purpose.DUTY_OF_CARE.name());
+        final Stream<Employee> tomTallyResults1 = client.read(sourceFile, tomTally.getUserId().getId(), Purpose.COMPANY_DIRECTORY.name());
         LOGGER.info("tomTally got back: ");
         tomTallyResults1.map(Object::toString).forEach(LOGGER::info);
 
