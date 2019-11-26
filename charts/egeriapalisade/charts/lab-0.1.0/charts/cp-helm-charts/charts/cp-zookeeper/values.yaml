@@ -1,0 +1,33 @@
+autoPurgePurgeInterval: 24
+autoPurgeSnapRetainCount: 3
+clientPort: 2181
+heapOptions: -Xms512M -Xmx512M
+image: confluentinc/cp-zookeeper
+imagePullPolicy: IfNotPresent
+imagePullSecrets: null
+imageTag: 5.0.1
+initLimit: 10
+jmx:
+  port: 5555
+leaderElectionPort: 3888
+maxClientCnxns: 60
+nodeSelector: {}
+persistence:
+  dataDirSize: 5Gi
+  dataLogDirSize: 5Gi
+  enabled: true
+podAnnotations: {}
+podManagementPolicy: OrderedReady
+prometheus:
+  jmx:
+    enabled: true
+    image: solsson/kafka-prometheus-jmx-exporter@sha256
+    imageTag: 6f82e2b0464f50da8104acd7363fb9b995001ddff77d248379f8788e78946143
+    port: 5556
+resources: {}
+serverPort: 2888
+servers: 3
+syncLimit: 5
+tickTime: 2000
+tolerations: {}
+updateStrategy: RollingUpdate

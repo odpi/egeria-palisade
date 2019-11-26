@@ -1,0 +1,30 @@
+apiVersion: v1
+appVersion: "1.0"
+dependencies:
+- condition: cp-kafka.enabled
+  name: cp-kafka
+  repository: file://./charts/cp-kafka
+  version: 0.1.0
+- condition: cp-zookeeper.enabled
+  name: cp-zookeeper
+  repository: file://./charts/cp-zookeeper
+  version: 0.1.0
+- condition: cp-schema-registry.enabled
+  name: cp-schema-registry
+  repository: file://./charts/cp-schema-registry
+  version: 0.1.0
+- condition: cp-kafka-rest.enabled
+  name: cp-kafka-rest
+  repository: file://./charts/cp-kafka-rest
+  version: 0.1.0
+- condition: cp-kafka-connect.enabled
+  name: cp-kafka-connect
+  repository: file://./charts/cp-kafka-connect
+  version: 0.1.0
+- condition: cp-ksql-server.enabled
+  name: cp-ksql-server
+  repository: file://./charts/cp-ksql-server
+  version: 0.1.0
+description: A Helm chart for Confluent Open Source
+name: cp-helm-charts
+version: 0.1.0

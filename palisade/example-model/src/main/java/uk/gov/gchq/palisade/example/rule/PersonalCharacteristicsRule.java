@@ -8,7 +8,7 @@ import uk.gov.gchq.palisade.rule.Rule;
 
 import static java.util.Objects.requireNonNull;
 
-public class PersonalCharacteristicsRule {
+public class PersonalCharacteristicsRule implements Rule<Employee> {
     public PersonalCharacteristicsRule() {
     }
 
