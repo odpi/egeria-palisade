@@ -5,7 +5,7 @@ apiVersion: v1
 metadata:
   labels:
     app:  etcd
-  name: {{ .Release.Name }}-etcd
+  name: etcd
 spec:
   selector:
     app: etcd
@@ -19,7 +19,7 @@ kind: Deployment
 metadata:
   labels:
     app:  etcd
-  name: {{ .Release.Name }}-etcd
+  name: etcd
 spec:
   replicas: {{ .Values.etcd.replicas }}
   selector:

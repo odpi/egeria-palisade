@@ -5,7 +5,7 @@ apiVersion: v1
 metadata:
   labels:
     app: data-service
-  name: {{ .Release.Name }}-data-service
+  name: data-service
 spec:
   selector:
     app: data-service
@@ -20,7 +20,7 @@ kind: Deployment
 metadata:
   labels:
     app:  data-service
-  name: {{ .Release.Name }}-data-service
+  name: data-service
 spec:
   replicas: {{ .Values.dataservice.replicas }}
   selector:

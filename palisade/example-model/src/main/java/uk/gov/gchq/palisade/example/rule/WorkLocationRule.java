@@ -26,7 +26,7 @@ public class WorkLocationRule implements Rule<Employee>{
             return record;
         } else if (purpose.equals(Purpose.PROFILE_ACCESS.name()) && user.getUserId().equals(record.getUid())) {
             return record;
-        } else if (purpose.equals(Purpose.SALARY_ANALYSIS.name()) || purpose.equals(Purpose.DIRECTORY_ACCESS.name())) {
+        } else if (purpose.equals(Purpose.SALARY_ANALYSIS.name()) || purpose.equals(Purpose.COMPANY_DIRECTORY.name())) {
             return redactWorkLocationAddress(record);
         }  else {
             return redactWorkLocation(record);

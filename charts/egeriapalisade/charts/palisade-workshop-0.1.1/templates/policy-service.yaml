@@ -5,7 +5,7 @@ apiVersion: v1
 metadata:
   labels:
     app: policy-service
-  name: {{ .Release.Name }}-policy-service
+  name: policy-service
 spec:
   selector:
     app: policy-service
@@ -19,7 +19,7 @@ kind: Deployment
 metadata:
   labels:
     app: policy-service
-  name: {{ .Release.Name }}-policy-service
+  name: policy-service
 spec:
   replicas: {{ .Values.policyservice.replicas }}
   selector:

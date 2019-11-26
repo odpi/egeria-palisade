@@ -43,7 +43,7 @@ public class DutyOfCareRule implements Rule<Employee> {
         UserId userId = user.getUserId();
         Manager[] managers = record.getManager();
 
-        if (EmployeeUtils.isManager(managers, userId) && purpose.equals(Purpose.DIRECTORY_ACCESS.name())) {
+        if (EmployeeUtils.isManager(managers, userId) && purpose.equals(Purpose.COMPANY_DIRECTORY.name())) {
             return record;
         } else if (purpose.equals(Purpose.PROFILE_ACCESS.name()) && user.getUserId().equals(record.getUid())) {
             return record;

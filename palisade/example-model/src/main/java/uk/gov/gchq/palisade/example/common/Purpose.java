@@ -17,9 +17,8 @@
 package uk.gov.gchq.palisade.example.common;
 
 public enum Purpose {
-    DIRECTORY_ACCESS,
-    PROFILE_ACCESS,
-    HEALTH_SCREENING,
-    SALARY_ANALYSIS,
-    DUTY_OF_CARE
+    PROFILE_ACCESS, // An employee accessing their own profile
+    HEALTH_SCREENING, // HR department screening for age etc.
+    SALARY_ANALYSIS, // HR department anonymous analysis of salaries
+    COMPANY_DIRECTORY // An internal listing of employees
 }

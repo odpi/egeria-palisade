@@ -3,7 +3,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: {{ .Release.Name }}-resource-service
+  name: resource-service
 spec:
   selector:
     app: resource-service
@@ -17,7 +17,7 @@ kind: Deployment
 metadata:
   labels:
     app: resource-service
-  name: {{ .Release.Name }}-resource-service
+  name: resource-service
 spec:
   selector:
     matchLabels:

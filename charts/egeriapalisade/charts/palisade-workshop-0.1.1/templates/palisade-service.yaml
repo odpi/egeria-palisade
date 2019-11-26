@@ -5,7 +5,7 @@ apiVersion: v1
 metadata:
   labels:
     app: palisade-service
-  name:  {{ .Release.Name }}-palisade-service
+  name: palisade-service
 spec:
   selector:
     app: palisade-service
@@ -19,7 +19,7 @@ kind: Deployment
 metadata:
   labels:
      app: palisade-service
-  name: {{ .Release.Name }}-palisade-service
+  name: palisade-service
 spec:
   replicas: {{ .Values.palisadeservice.replicas }}
   selector:

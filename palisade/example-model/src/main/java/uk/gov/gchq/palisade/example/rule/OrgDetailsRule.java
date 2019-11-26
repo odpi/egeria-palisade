@@ -37,7 +37,7 @@ public class OrgDetailsRule implements Rule<Employee> {
         requireNonNull(context);
         String purpose = context.getPurpose();
 
-        if (purpose.equals(Purpose.SALARY_ANALYSIS.name()) || purpose.equals(Purpose.DIRECTORY_ACCESS.name())) {
+        if (purpose.equals(Purpose.SALARY_ANALYSIS.name()) || purpose.equals(Purpose.COMPANY_DIRECTORY.name())) {
             return record;
         } else if (purpose.equals(Purpose.PROFILE_ACCESS.name()) && user.getUserId().equals(record.getUid())) {
             return record;

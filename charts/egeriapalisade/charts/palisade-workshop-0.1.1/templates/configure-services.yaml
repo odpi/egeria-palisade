@@ -5,7 +5,7 @@ kind: Job
 metadata:
   labels:
     app: configure-services
-  name: {{ .Release.Name }}-configure-services
+  name: configure-services
 spec:
   template:
     spec:

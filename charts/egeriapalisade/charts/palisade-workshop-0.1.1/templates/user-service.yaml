@@ -5,7 +5,7 @@ apiVersion: v1
 metadata:
   labels:
     app: user-service
-  name: {{ .Release.Name }}-user-service
+  name: user-service
 spec:
   selector:
     app: user-service
@@ -19,7 +19,7 @@ kind: Deployment
 metadata:
   labels:
     app: user-service
-  name: {{ .Release.Name }}-user-service
+  name: user-service
 spec:
   replicas: {{ .Values.userservice.replicas }}
   selector:
