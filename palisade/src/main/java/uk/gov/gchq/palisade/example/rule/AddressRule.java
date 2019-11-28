@@ -26,6 +26,8 @@ public class AddressRule implements Rule<Employee> {
             return record;
         } else if (purpose.equals(Purpose.PROFILE_ACCESS.name()) && user.getUserId().equals(record.getUid())) {
             return record;
+        } else if (purpose.equals(Purpose.SALARY_ANALYSIS.name())) {
+            return maskAddress(record);
         } else {
             return redactRecord(record);
         }
