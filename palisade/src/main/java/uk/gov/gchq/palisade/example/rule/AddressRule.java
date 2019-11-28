@@ -23,7 +23,7 @@ public class AddressRule implements Rule<Employee> {
         String purpose = context.getPurpose();
 
         if (purpose.equals(Purpose.HEALTH_SCREENING.name())) {
-            return record;
+                return record;
         } else if (purpose.equals(Purpose.PROFILE_ACCESS.name()) && user.getUserId().equals(record.getUid())) {
             return record;
         } else if (purpose.equals(Purpose.SALARY_ANALYSIS.name())) {

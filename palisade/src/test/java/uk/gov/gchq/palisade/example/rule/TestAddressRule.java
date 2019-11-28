@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 import uk.gov.gchq.palisade.Context;
 import uk.gov.gchq.palisade.User;
 import uk.gov.gchq.palisade.example.common.Purpose;
+import uk.gov.gchq.palisade.example.hrdatagenerator.types.Address;
 import uk.gov.gchq.palisade.example.hrdatagenerator.types.Employee;
 import uk.gov.gchq.palisade.rule.Rule;
 
@@ -45,8 +46,6 @@ public class TestAddressRule extends TestCommonRuleTheories {
         Employee recordWithRule = rule.apply(new Employee(record), user, context);
 
         Employee maskedRecord = new Employee(record);
-        maskedRecord.setAddress(null);
-        maskedRecord.setWorkLocation(recordWithRule.getWorkLocation());
         // Then
         assertThat(recordWithRule.getAddress(), not(equalTo(record.getAddress())));
         assertThat(recordWithRule, is(maskedRecord));
@@ -54,17 +53,18 @@ public class TestAddressRule extends TestCommonRuleTheories {
 
     @Theory
     public void testAddressRedacted(Rule<Employee> rule, final Employee record, final User user, final Context context) {
-        // Given - Doesn't satisfy PROFILE_ACCESS rule
-        assumeFalse(context.getPurpose().equals(Purpose.PROFILE_ACCESS.name()) && record.getUid().equals(user.getUserId()));
-        // Given - Purpose != ""
-        assumeThat(context.getPurpose(), not(isEmptyString()));
+        // Given - Does satisfy Salary rule
+        assumeThat(context.getPurpose(), is(Purpose.SALARY_ANALYSIS.name()));
 
         // When
         Employee recordWithRule = rule.apply(new Employee(record), user, context);
 
         // Then - Expected
         Employee redactedRecord = new Employee(record);
-        redactedRecord.setAddress(null);
+        Address employeeAddress = redactedRecord.getAddress();
+        employeeAddress.setStreetAddressNumber(null);
+        employeeAddress.setStreetName(null);
+        employeeAddress.setZipCode(employeeAddress.getZipCode().substring(0, employeeAddress.getZipCode().length() - 1) + "*");
         // Then - Observed
         assertThat(recordWithRule, is(redactedRecord));
     }

@@ -7,6 +7,7 @@ set -e
 # * we need to build a resource-service rest client pointing to egeria
 
 # Start with a clean build space
+(cd ..)
 (cd palisade && mvn clean)
 
 # Build palisade without examples supplying most common dependencies except Employee datatype
