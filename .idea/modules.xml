@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/egeria-palisade.iml" filepath="$PROJECT_DIR$/.idea/egeria-palisade.iml" />
+      <module fileurl="file://$PROJECT_DIR$/egeria-palisade.iml" filepath="$PROJECT_DIR$/egeria-palisade.iml" />
       <module fileurl="file://$PROJECT_DIR$/palisade/example.iml" filepath="$PROJECT_DIR$/palisade/example.iml" />
       <module fileurl="file://$PROJECT_DIR$/palisade/local-docker/example/example-docker-services.iml" filepath="$PROJECT_DIR$/palisade/local-docker/example/example-docker-services.iml" />
       <module fileurl="file://$PROJECT_DIR$/palisade/example-model/example-model.iml" filepath="$PROJECT_DIR$/palisade/example-model/example-model.iml" />

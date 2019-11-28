@@ -36,7 +36,7 @@ public class TestDutyOfCareRule extends TestCommonRuleTheories {
     }
 
     @Theory
-    public void testUnchangedWithDutyOfCare(Rule<Employee> rule, final Employee record, final User user, final Context context) {
+    public void testUnchangedWithCompanyDirectory(Rule<Employee> rule, final Employee record, final User user, final Context context) {
         // Given - Purpose == COMPANY_DIRECTORY
         assumeThat(context.getPurpose(), is(Purpose.COMPANY_DIRECTORY.name()));
         // Given - User.Uid in Employee.manager group
