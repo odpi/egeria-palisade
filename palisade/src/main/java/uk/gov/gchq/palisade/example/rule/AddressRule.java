@@ -40,7 +40,11 @@ public class AddressRule implements Rule<Employee> {
 
     private Employee maskAddress(final Employee maskedRecord) {
         Address address = maskedRecord.getAddress();
-
+        String zipCode = address.getZipCode();
+        String zipCodeRedacted = zipCode.substring(0, zipCode.length() - 1) + "*";
+        address.setStreetAddressNumber(null);
+        address.setStreetName(null);
+        address.setZipCode(zipCodeRedacted);
         maskedRecord.setAddress(address);
         return maskedRecord;
     }
