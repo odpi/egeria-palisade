@@ -1,0 +1,39 @@
+cp-helm-charts:
+  cp-kafka:
+    brokers: 1
+    configurationOverrides:
+      auto.create.topics.enable: true
+    prometheus:
+      jmx:
+        enabled: false
+  cp-zookeeper:
+    prometheus:
+      jmx:
+        enabled: false
+    servers: 1
+cp-kafka-connect:
+  enabled: false
+cp-kafka-rest:
+  enabled: false
+cp-ksql-server:
+  enabled: false
+cp-schema-registry:
+  enabled: false
+image:
+  configure:
+    name: egeria-configure
+  egeria:
+    name: egeria
+  jupyter:
+    name: base-notebook
+    namespace: jupyter
+imageDefaults:
+  namespace: odpi
+  pullPolicy: IfNotPresent
+  registry: docker.io
+  tag: latest
+service:
+  nodeport:
+    egeriaui: 30443
+    jupyter: 30888
+  type: NodePort

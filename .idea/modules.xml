@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/egeria-palisade.iml" filepath="$PROJECT_DIR$/egeria-palisade.iml" />
+      <module fileurl="file://$PROJECT_DIR$/palisade/example.iml" filepath="$PROJECT_DIR$/palisade/example.iml" />
+      <module fileurl="file://$PROJECT_DIR$/palisade/local-docker/example/example-docker-services.iml" filepath="$PROJECT_DIR$/palisade/local-docker/example/example-docker-services.iml" />
+      <module fileurl="file://$PROJECT_DIR$/palisade/example-model/example-model.iml" filepath="$PROJECT_DIR$/palisade/example-model/example-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/palisade/example-rest-resource-service/example-rest-resource-service.iml" filepath="$PROJECT_DIR$/palisade/example-rest-resource-service/example-rest-resource-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/palisade/local-docker/local-docker.iml" filepath="$PROJECT_DIR$/palisade/local-docker/local-docker.iml" />
+    </modules>
+  </component>
+</project>

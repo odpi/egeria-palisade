@@ -17,88 +17,90 @@
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-<!--    <parent>-->
-<!--        <groupId>uk.gov.gchq.palisade</groupId>-->
-<!--        <artifactId>palisade</artifactId>-->
-<!--        <version>0.3.1-SNAPSHOT</version>-->
-<!--    </parent>-->
+    <parent>
+        <groupId>uk.gov.gchq.palisade</groupId>
+        <artifactId>egeria-palisade</artifactId>
+        <version>0.3.1-SNAPSHOT</version>
+    </parent>
+    <artifactId>example</artifactId>
+    <packaging>pom</packaging>
 
-    <groupId>uk.gov.gchq.palisade</groupId>
-    <artifactId>example-model</artifactId>
-    <version>0.3.1-SNAPSHOT</version>
+    <modules>
+        <module>example-model</module>
+        <module>example-rest-resource-service</module>
+        <module>local-docker</module>
+    </modules>
 
     <properties>
-    <!-- Versions -->
-    <java.version>8</java.version>
-    <maven.compiler.source>${java.version}</maven.compiler.source>
-    <maven.compiler.target>${java.version}</maven.compiler.target>
-    <jar.plugin.version>3.1.1</jar.plugin.version>
-    <compiler.plugin.version>3.8.0</compiler.plugin.version>
-    <javadoc.plugin.version>3.0.1</javadoc.plugin.version>
-    <slf4j.api.version>1.7.25</slf4j.api.version>
-    <slf4j.simple.version>1.7.25</slf4j.simple.version>
-    <dependency.plugin.version>3.1.1</dependency.plugin.version>
-    <jackson.version>2.9.8</jackson.version>
-    <maven-war-plugin.version>3.2.2</maven-war-plugin.version>
-    <maven-shade-plugin.version>3.1.1</maven-shade-plugin.version>
-    <exec.plugin.version>1.2.1</exec.plugin.version>
-    <guava.version>27.0.1-jre</guava.version>
-    <commons-io.version>2.6</commons-io.version>
-    <commons-lang3.version>3.8.1</commons-lang3.version>
-    <jersey.version>2.27</jersey.version>
-    <glassfish.hk2.version>2.5.0</glassfish.hk2.version>
-    <glassfish.hk2.javax.inject.version>2.4.0</glassfish.hk2.javax.inject.version>
-    <servlet-api.version>4.0.1</servlet-api.version>
-    <grizzly.version>2.4.3.1</grizzly.version>
-    <hadoop.version>2.8.5</hadoop.version>
-    <avro.version>1.8.2</avro.version>
-    <koryphe.version>1.5.0</koryphe.version>
-    <jetcd.version>0.3.0</jetcd.version>
-    <protobuf.version>3.5.1</protobuf.version>
-    <docker.maven.version>0.28.0</docker.maven.version>
-    <swagger.version>1.5.21</swagger.version>
-    <javassist.version>3.24.1-GA</javassist.version>
-    <reflections.version>0.9.11</reflections.version>
-    <jaxb.api.version>2.2.8</jaxb.api.version>
-    <javax.activation.version>1.2.0</javax.activation.version>
+        <!-- Versions -->
+        <java.version>8</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <jar.plugin.version>3.1.1</jar.plugin.version>
+        <compiler.plugin.version>3.8.0</compiler.plugin.version>
+        <javadoc.plugin.version>3.0.1</javadoc.plugin.version>
+        <slf4j.api.version>1.7.25</slf4j.api.version>
+        <slf4j.simple.version>1.7.25</slf4j.simple.version>
+        <dependency.plugin.version>3.1.1</dependency.plugin.version>
+        <jackson.version>2.9.8</jackson.version>
+        <maven-war-plugin.version>3.2.2</maven-war-plugin.version>
+        <maven-shade-plugin.version>3.1.1</maven-shade-plugin.version>
+        <exec.plugin.version>1.2.1</exec.plugin.version>
+        <guava.version>27.0.1-jre</guava.version>
+        <commons-io.version>2.6</commons-io.version>
+        <commons-lang3.version>3.8.1</commons-lang3.version>
+        <jersey.version>2.27</jersey.version>
+        <glassfish.hk2.version>2.5.0</glassfish.hk2.version>
+        <glassfish.hk2.javax.inject.version>2.4.0</glassfish.hk2.javax.inject.version>
+        <servlet-api.version>4.0.1</servlet-api.version>
+        <grizzly.version>2.4.3.1</grizzly.version>
+        <hadoop.version>2.8.5</hadoop.version>
+        <avro.version>1.8.2</avro.version>
+        <koryphe.version>1.5.0</koryphe.version>
+        <jetcd.version>0.3.0</jetcd.version>
+        <protobuf.version>3.5.1</protobuf.version>
+        <docker.maven.version>0.28.0</docker.maven.version>
+        <swagger.version>1.5.21</swagger.version>
+        <javassist.version>3.24.1-GA</javassist.version>
+        <reflections.version>0.9.11</reflections.version>
+        <jaxb.api.version>2.2.8</jaxb.api.version>
+        <javax.activation.version>1.2.0</javax.activation.version>
 
-    <!-- Testing properties -->
-    <hadoop-minicluster.version>3.2.0</hadoop-minicluster.version>
-    <junit.version>4.12</junit.version>
-    <hamcrest.version>1.3</hamcrest.version>
-    <mockito.version>1.10.19</mockito.version>
-    <surefire.plugin.version>2.22.1</surefire.plugin.version>
-    <failsafe.version>2.22.1</failsafe.version>
-    <skip.surefire.tests>false</skip.surefire.tests>
-    <skip.failsafe.tests>false</skip.failsafe.tests>
-    <checkstyle.phase>test</checkstyle.phase>
-    <checkstyle.plugin.version>3.0.0</checkstyle.plugin.version>
-    <jcip.annotations.version>1.0-1</jcip.annotations.version>
-    <testcontainers.version>1.10.5</testcontainers.version>
-    <error.prone.version>2.3.3</error.prone.version>
-    <!-- TODO: remove errorprone.javac.version property once JDK9+ migration complete -->
-    <error.prone.javac.version>9+181-r4173-1</error.prone.javac.version>
-    <surefireArgLine />
-    <failsafeArgLine />
-    <exclude.tests />
+        <!-- Testing properties -->
+        <hadoop-minicluster.version>3.2.0</hadoop-minicluster.version>
+        <junit.version>4.12</junit.version>
+        <hamcrest.version>1.3</hamcrest.version>
+        <mockito.version>1.10.19</mockito.version>
+        <surefire.plugin.version>2.22.1</surefire.plugin.version>
+        <failsafe.version>2.22.1</failsafe.version>
+        <skip.surefire.tests>false</skip.surefire.tests>
+        <skip.failsafe.tests>false</skip.failsafe.tests>
+        <jcip.annotations.version>1.0-1</jcip.annotations.version>
+        <testcontainers.version>1.10.5</testcontainers.version>
+        <error.prone.version>2.3.3</error.prone.version>
+        <!-- TODO: remove errorprone.javac.version property once JDK9+ migration complete -->
+        <error.prone.javac.version>9+181-r4173-1</error.prone.javac.version>
+        <surefireArgLine/>
+        <failsafeArgLine/>
+        <exclude.tests/>
 
-    <restRedirectorPort>9080</restRedirectorPort>
-    <restPalisadeMetricProviderPort>9080</restPalisadeMetricProviderPort>
-    <restPalisadeServicePort>9080</restPalisadeServicePort>
-    <restPolicyServicePort>9081</restPolicyServicePort>
-    <restResourceServicePort>9082</restResourceServicePort>
-    <restUserServicePort>9083</restUserServicePort>
-    <restDataServicePort>9084</restDataServicePort>
-    <restConfigServicePort>9085</restConfigServicePort>
+        <restRedirectorPort>9080</restRedirectorPort>
+        <restPalisadeMetricProviderPort>9080</restPalisadeMetricProviderPort>
+        <restPalisadeServicePort>9080</restPalisadeServicePort>
+        <restPolicyServicePort>9081</restPolicyServicePort>
+        <restResourceServicePort>9082</restResourceServicePort>
+        <restUserServicePort>9083</restUserServicePort>
+        <restDataServicePort>9084</restDataServicePort>
+        <restConfigServicePort>9085</restConfigServicePort>
 
-    <!-- Other -->
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <!-- Other -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
     </properties>
 
     <dependencies>
-        <dependency>
+        <!--<dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>${slf4j.api.version}</version>
@@ -275,7 +277,7 @@
             <artifactId>hamcrest-all</artifactId>
             <version>${hamcrest.version}</version>
             <scope>test</scope>
-        </dependency>
+        </dependency>-->
     </dependencies>
 
     <build>
@@ -345,50 +347,6 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-failsafe-plugin</artifactId>
-                <version>${failsafe.version}</version>
-                <executions>
-                    <execution>
-                        <id>integration-test</id>
-                        <goals>
-                            <goal>integration-test</goal>
-                            <goal>verify</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <skipITs>${skip.failsafe.tests}</skipITs>
-                    <argLine>${failsafeArgLine}</argLine>
-                    <excludes>
-                        <exclude>${exclude.tests}</exclude>
-                    </excludes>
-                    <includes>
-                        <include>**/*IntegrationTest.java</include>
-                        <include>**/*IT.java</include>
-                        <include>**/*ITs.java</include>
-                        <include>**/*IntegrationTests.java</include>
-                    </includes>
-                    <environmentVariables />
-                    <systemPropertyVariables>
-                        <restUserServicePort>${restUserServicePort}</restUserServicePort>
-                        <restPolicyServicePort>${restPolicyServicePort}</restPolicyServicePort>
-                        <restRedirectorPort>${restRedirectorPort}</restRedirectorPort>
-                        <restConfigServicePort>${restConfigServicePort}</restConfigServicePort>
-                        <restDataServicePort>${restDataServicePort}</restDataServicePort>
-                        <restPalisadeMetricProviderPort>${restPalisadeMetricProviderPort}</restPalisadeMetricProviderPort>
-                        <restPalisadeServicePort>${restPalisadeServicePort}</restPalisadeServicePort>
-                        <restResourceServicePort>${restResourceServicePort}</restResourceServicePort>
-                        <log4j.configuration>
-                            file:${project.build.testOutputDirectory}/log4j.xml
-                        </log4j.configuration>
-                    </systemPropertyVariables>
-                    <environmentVariables>
-                        <PALISADE_REST_CONFIG_PATH>src/main/resources/configRest.json</PALISADE_REST_CONFIG_PATH>
-                    </environmentVariables>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>${maven-shade-plugin.version}</version>
                 <executions>
@@ -414,7 +372,7 @@
                         </filter>
                     </filters>
                     <transformers>
-                        <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
+                        <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
                     </transformers>
                 </configuration>
             </plugin>
