@@ -154,26 +154,6 @@
                         </configuration>
                     </execution>
                     <execution>
-<<<<<<< HEAD
-                        <id>copy-config-json-rest-redirector</id>
-                        <phase>install</phase>
-                        <goals>
-                            <goal>copy-resources</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>./rest-redirector/docker/bin</outputDirectory>
-                            <resources>
-                                <resource>
-                                    <directory>${project.basedir}</directory>
-                                    <filtering>false</filtering>
-                                    <include>configRest.json</include>
-                                </resource>
-                            </resources>
-                        </configuration>
-                    </execution>
-                    <execution>
-=======
->>>>>>> b5a1334f0051edb7172a0587de6a6e764327d191
                         <id>copy-example-model-for-service-config</id>
                         <phase>generate-resources</phase>
                         <goals>
@@ -211,28 +191,6 @@
                             </resources>
                         </configuration>
                     </execution>
-<<<<<<< HEAD
-                    <execution>
-                        <id>copy-example-runner</id>
-                        <phase>generate-resources</phase>
-                        <goals>
-                            <goal>copy-resources</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>${project.basedir}/client/docker/bin</outputDirectory>
-                            <overwrite>true</overwrite>
-                            <resources>
-                                <resource>
-                                    <directory>../../example-model/target</directory>
-                                    <includes>
-                                        <include>example-model-*-shaded.jar</include>
-                                    </includes>
-                                </resource>
-                            </resources>
-                        </configuration>
-                    </execution>
-=======
->>>>>>> b5a1334f0051edb7172a0587de6a6e764327d191
                 </executions>
             </plugin>
             <!--Unpack War files-->

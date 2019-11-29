@@ -23,17 +23,11 @@ public class AddressRule implements Rule<Employee> {
         String purpose = context.getPurpose();
 
         if (purpose.equals(Purpose.HEALTH_SCREENING.name())) {
-<<<<<<< HEAD
             return record;
-        } else if (purpose.equals(Purpose.PROFILE_ACCESS.name()) && user.getUserId().equals(record.getUid())) {
-            return record;
-=======
-                return record;
         } else if (purpose.equals(Purpose.PROFILE_ACCESS.name()) && user.getUserId().equals(record.getUid())) {
             return record;
         } else if (purpose.equals(Purpose.SALARY_ANALYSIS.name())) {
             return maskAddress(record);
->>>>>>> b5a1334f0051edb7172a0587de6a6e764327d191
         } else {
             return redactRecord(record);
         }
@@ -46,15 +40,12 @@ public class AddressRule implements Rule<Employee> {
 
     private Employee maskAddress(final Employee maskedRecord) {
         Address address = maskedRecord.getAddress();
-<<<<<<< HEAD
 
-=======
         String zipCode = address.getZipCode();
         String zipCodeRedacted = zipCode.substring(0, zipCode.length() - 1) + "*";
         address.setStreetAddressNumber(null);
         address.setStreetName(null);
         address.setZipCode(zipCodeRedacted);
->>>>>>> b5a1334f0051edb7172a0587de6a6e764327d191
         maskedRecord.setAddress(address);
         return maskedRecord;
     }

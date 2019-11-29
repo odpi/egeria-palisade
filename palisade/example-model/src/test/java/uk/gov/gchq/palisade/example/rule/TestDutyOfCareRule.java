@@ -36,11 +36,7 @@ public class TestDutyOfCareRule extends TestCommonRuleTheories {
     }
 
     @Theory
-<<<<<<< HEAD:palisade/example-model/src/test/java/uk/gov/gchq/palisade/example/rule/TestDutyOfCareRule.java
-    public void testUnchangedWithDutyOfCare(Rule<Employee> rule, final Employee record, final User user, final Context context) {
-=======
     public void testUnchangedWithCompanyDirectory(Rule<Employee> rule, final Employee record, final User user, final Context context) {
->>>>>>> b5a1334f0051edb7172a0587de6a6e764327d191:palisade/example-model/src/test/java/uk/gov/gchq/palisade/example/rule/TestDutyOfCareRule.java
         // Given - Purpose == COMPANY_DIRECTORY
         assumeThat(context.getPurpose(), is(Purpose.COMPANY_DIRECTORY.name()));
         // Given - User.Uid in Employee.manager group
