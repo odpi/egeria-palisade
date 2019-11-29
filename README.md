@@ -2,7 +2,7 @@
 <!-- Copyright Contributors to the ODPi Egeria and Palisade project. -->
 <p align="center">
   <img src="/logos/PalisadeLogo.svg" width="100" />
-  <img src="/logos/ODPi_Egeria_Logo_color.png" width="100" /> 
+  <img src="/logos/ODPi_Egeria_Logo_color.png" width="400" /> 
 </p>
 
 # Egeria Palisade integration
