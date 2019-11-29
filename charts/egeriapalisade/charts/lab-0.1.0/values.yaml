@@ -36,5 +36,8 @@ service:
   nodeport:
     egeriaui: 30443
     jupyter: 30888
+<<<<<<< HEAD
     egerialake: 30881
+=======
+>>>>>>> b5a1334f0051edb7172a0587de6a6e764327d191
   type: NodePort

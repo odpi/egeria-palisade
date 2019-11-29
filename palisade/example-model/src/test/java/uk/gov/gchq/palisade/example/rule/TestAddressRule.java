@@ -8,6 +8,10 @@ import org.junit.runner.RunWith;
 import uk.gov.gchq.palisade.Context;
 import uk.gov.gchq.palisade.User;
 import uk.gov.gchq.palisade.example.common.Purpose;
+<<<<<<< HEAD
+=======
+import uk.gov.gchq.palisade.example.hrdatagenerator.types.Address;
+>>>>>>> b5a1334f0051edb7172a0587de6a6e764327d191
 import uk.gov.gchq.palisade.example.hrdatagenerator.types.Employee;
 import uk.gov.gchq.palisade.rule.Rule;
 
@@ -45,26 +49,43 @@ public class TestAddressRule extends TestCommonRuleTheories {
         Employee recordWithRule = rule.apply(new Employee(record), user, context);
 
         Employee maskedRecord = new Employee(record);
+<<<<<<< HEAD
         maskedRecord.setAddress(null);
         maskedRecord.setWorkLocation(recordWithRule.getWorkLocation());
         // Then
         assertThat(recordWithRule.getAddress(), not(equalTo(record.getAddress())));
+=======
+        // Then
+        assertThat(recordWithRule.getAddress(), is(record.getAddress()));
+>>>>>>> b5a1334f0051edb7172a0587de6a6e764327d191
         assertThat(recordWithRule, is(maskedRecord));
     }
 
     @Theory
     public void testAddressRedacted(Rule<Employee> rule, final Employee record, final User user, final Context context) {
+<<<<<<< HEAD
         // Given - Doesn't satisfy PROFILE_ACCESS rule
         assumeFalse(context.getPurpose().equals(Purpose.PROFILE_ACCESS.name()) && record.getUid().equals(user.getUserId()));
         // Given - Purpose != ""
         assumeThat(context.getPurpose(), not(isEmptyString()));
+=======
+        // Given - Does satisfy Salary rule
+        assumeThat(context.getPurpose(), is(Purpose.SALARY_ANALYSIS.name()));
+>>>>>>> b5a1334f0051edb7172a0587de6a6e764327d191
 
         // When
         Employee recordWithRule = rule.apply(new Employee(record), user, context);
 
         // Then - Expected
         Employee redactedRecord = new Employee(record);
+<<<<<<< HEAD
         redactedRecord.setAddress(null);
+=======
+        Address employeeAddress = redactedRecord.getAddress();
+        employeeAddress.setStreetAddressNumber(null);
+        employeeAddress.setStreetName(null);
+        employeeAddress.setZipCode(employeeAddress.getZipCode().substring(0, employeeAddress.getZipCode().length() - 1) + "*");
+>>>>>>> b5a1334f0051edb7172a0587de6a6e764327d191
         // Then - Observed
         assertThat(recordWithRule, is(redactedRecord));
     }

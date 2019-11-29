@@ -154,6 +154,7 @@
                         </configuration>
                     </execution>
                     <execution>
+<<<<<<< HEAD
                         <id>copy-config-json-rest-redirector</id>
                         <phase>install</phase>
                         <goals>
@@ -171,6 +172,8 @@
                         </configuration>
                     </execution>
                     <execution>
+=======
+>>>>>>> b5a1334f0051edb7172a0587de6a6e764327d191
                         <id>copy-example-model-for-service-config</id>
                         <phase>generate-resources</phase>
                         <goals>
@@ -208,6 +211,7 @@
                             </resources>
                         </configuration>
                     </execution>
+<<<<<<< HEAD
                     <execution>
                         <id>copy-example-runner</id>
                         <phase>generate-resources</phase>
@@ -227,6 +231,8 @@
                             </resources>
                         </configuration>
                     </execution>
+=======
+>>>>>>> b5a1334f0051edb7172a0587de6a6e764327d191
                 </executions>
             </plugin>
             <!--Unpack War files-->

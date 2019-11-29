@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License
 
+.*
 target/
 *.iml
 bin/
@@ -77,6 +78,7 @@ target*
 dependency-reduced-pom.xml
 core*.dmp
 pom.xml.releaseBackup
+bin
 
 # IntelliJ
 *.iml

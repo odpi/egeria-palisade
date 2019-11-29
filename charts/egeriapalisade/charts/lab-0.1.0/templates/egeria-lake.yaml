@@ -13,11 +13,16 @@ metadata:
   name: {{ include "myapp.fullname" . }}-egeria-lake-service
 
 spec:
+<<<<<<< HEAD
   type: {{ .Values.service.type }}
   ports:
     - port: 8080
       targetPort: 8080
       nodePort: {{ .Values.service.nodeport.egerialake }}
+=======
+  ports:
+    - port: 8080
+>>>>>>> b5a1334f0051edb7172a0587de6a6e764327d191
   selector:
     app.kubernetes.io/name: {{ include "myapp.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}

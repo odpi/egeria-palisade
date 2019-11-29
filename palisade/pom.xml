@@ -19,7 +19,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>uk.gov.gchq.palisade</groupId>
+<<<<<<< HEAD
         <artifactId>palisade</artifactId>
+=======
+        <artifactId>egeria-palisade</artifactId>
+>>>>>>> b5a1334f0051edb7172a0587de6a6e764327d191
         <version>0.3.1-SNAPSHOT</version>
     </parent>
     <artifactId>example</artifactId>
@@ -100,6 +104,7 @@
     </properties>
 
     <dependencies>
+<<<<<<< HEAD
         <!--<dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
@@ -278,6 +283,8 @@
             <version>${hamcrest.version}</version>
             <scope>test</scope>
         </dependency>-->
+=======
+>>>>>>> b5a1334f0051edb7172a0587de6a6e764327d191
     </dependencies>
 
     <build>

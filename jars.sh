@@ -1,5 +1,6 @@
 #! /bin/sh
 set -e
+cd ..
 
 # We want to build palisade with egeria supplying the resource service
 # This means:
