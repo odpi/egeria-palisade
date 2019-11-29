@@ -36,4 +36,5 @@ service:
   nodeport:
     egeriaui: 30443
     jupyter: 30888
+    egerialake: 30881
   type: NodePort
