@@ -70,7 +70,7 @@ public class ProxyServicesFactory {
      * @return true if the correct number of arguments are present
      */
     private boolean validateArguments(final String[] args) {
-        if (args.length > 8) {
+        if (args.length > 9) {
             return true;
         } else {
             LOGGER.error("error not enough arguments have been provided. The following arguments are required:\n" +
@@ -82,7 +82,8 @@ public class ProxyServicesFactory {
                     "6. the internal url for the data service\n" +
                     "7. the internal url for the config service\n" +
                     "8. the externally accessible url for the palisade service (for clients)\n" +
-                    "9. the externally accessible url for the data service (for clients)");
+                    "9. the externally accessible url for the data service (for clients)\n" +
+                    "10. the internal url for the egeria datalake service");
             return false;
         }
     }
@@ -105,6 +106,10 @@ public class ProxyServicesFactory {
 
     public AuditService createInternalAuditService() {
         return new LoggerAuditService();
+    }
+
+    public String getEgeriaServerURL() {
+        return args[9];
     }
 
     public PalisadeService createInternalPalisadeService() {
