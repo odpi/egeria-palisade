@@ -1,3 +1,0 @@
-This chart installs Confluent KSQL Server.
-
-https://docs.confluent.io/current/ksql/docs
