@@ -87,10 +87,6 @@ public class ProxyServicesFactory {
         }
     }
 
-    public ConnectionDetail createClientDataServiceConnection() {
-        return new ProxyRestConnectionDetail().url(args[8]).serviceClass(ProxyRestDataService.class);
-    }
-
     private CacheService cacheService;
 
     public CacheService createInternalCacheService() {
@@ -111,12 +107,8 @@ public class ProxyServicesFactory {
         return new LoggerAuditService();
     }
 
-    public ConfigurationService createInternalConfigService() {
-        return new ProxyRestConfigService(args[6]);
-    }
-
-    public UserService createInternalUserService() {
-        return new ProxyRestUserService(args[4]);
+    public PalisadeService createInternalPalisadeService() {
+        return new ProxyRestPalisadeService(args[1]);
     }
 
     public PolicyService createInternalPolicyService() {
@@ -127,15 +119,23 @@ public class ProxyServicesFactory {
         return new ProxyRestResourceService(args[3]);
     }
 
+    public UserService createInternalUserService() {
+        return new ProxyRestUserService(args[4]);
+    }
+
     public DataService createInternalDataService() {
         return new ProxyRestDataService(args[5]);
     }
 
-    public PalisadeService createInternalPalisadeService() {
-        return new ProxyRestPalisadeService(args[1]);
+    public ConfigurationService createInternalConfigService() {
+        return new ProxyRestConfigService(args[6]);
     }
 
     public PalisadeService createClientPalisadeService() {
         return new ProxyRestPalisadeService(args[7]);
+    }
+
+    public DataService createClientDataService() {
+        return new ProxyRestDataService(args[8]);
     }
 }

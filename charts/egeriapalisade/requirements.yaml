@@ -2,10 +2,7 @@
 # Copyright Contributors to the Egeria project.
 ---
 dependencies:
-  - name: lab
-    version: 0.1.0
-    repository: https://github.com/odpi/egeria/tree/master/open-metadata-resources/open-metadata-deployment/charts
+  - name: odpi-egeria-lab
+    version: 1.0.0
   - name: palisade-workshop
-    version: 0.1.0
-    # update accordingly
-    repository: file:///PATH/TO/src/palisade-workshop/
+    version: 0.1.1
