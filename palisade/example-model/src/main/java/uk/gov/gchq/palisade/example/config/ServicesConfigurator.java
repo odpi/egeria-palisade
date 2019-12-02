@@ -184,7 +184,7 @@ public class ServicesConfigurator {
      */
     protected ResourceService createResourceServiceForServer() {
         try {
-            return new EgeriaResourceService("cocoMDS1", getEgeriaServerURL);
+            return new EgeriaResourceService("cocoMDS1", clientServices.getEgeriaServerURL());
         } catch (Throwable e) {
             LOGGER.error(e.getMessage());
             return null;
