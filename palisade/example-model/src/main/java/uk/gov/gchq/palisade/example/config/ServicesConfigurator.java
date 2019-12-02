@@ -80,21 +80,23 @@ public class ServicesConfigurator {
 
         // create the client config service
         ConfigurationService configClient = clientServices.createInternalConfigService();
+        PalisadeService palisadeClient = clientServices.createClientPalisadeService();
+        DataService dataClient = clientServices.createClientDataService();
 
         // create the other client service
         AuditService auditService = clientServices.createInternalAuditService();
-        UserService userClient = clientServices.createInternalUserService();
-        ResourceService resourceClient = clientServices.createInternalResourceService();
-        PolicyService policyClient = clientServices.createInternalPolicyService();
-        PalisadeService palisadeClient = clientServices.createClientPalisadeService();
-        DataService dataClient = clientServices.createInternalDataService();
-        CacheService cacheClient = clientServices.createInternalCacheService();
+        UserService userService = clientServices.createInternalUserService();
+        ResourceService resourceService = clientServices.createInternalResourceService();
+        PolicyService policyService = clientServices.createInternalPolicyService();
+        PalisadeService palisadeService = clientServices.createInternalPalisadeService();
+        DataService dataService = clientServices.createInternalDataService();
+        CacheService cacheService = clientServices.createInternalCacheService();
 
         // add the config for the clients to the config service
 
         //although normally the client should only need the PalisadeService, we have to write all of the services here, since the
         //ExampleConfigurator retrieves other services when it wants to configure them. In production code this would not be necessary
-        Collection<Service> services = Stream.of(auditService, configClient, userClient, resourceClient, policyClient, palisadeClient, dataClient, cacheClient).collect(Collectors.toList());
+        Collection<Service> services = Stream.of(auditService, configClient, userService, resourceService, policyService, palisadeClient, dataClient, cacheService).collect(Collectors.toList());
         writeClientConfiguration(configClient, services);
 
         // write the serialisers to the cache
@@ -182,7 +184,7 @@ public class ServicesConfigurator {
      */
     protected ResourceService createResourceServiceForServer() {
         try {
-            return new EgeriaResourceService("cocoMDS3","http://localhost:18081");
+            return new EgeriaResourceService("cocoMDS1","http://localhost:18081");
         } catch (Throwable e) {
             LOGGER.error(e.getMessage());
             return null;

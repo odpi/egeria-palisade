@@ -25,3 +25,9 @@ spec:
                     backend:
                         serviceName: data-service
                         servicePort: 8080
+        - http:
+              paths:
+                  - path: /egeria
+                    backend:
+                        serviceName: {{ .Release.Name }}-odpi-egeria-lab-datalake
+                        servicePort: 8080

@@ -44,8 +44,8 @@ public class TestAddressRule extends TestCommonRuleTheories {
 
         // When
         Employee recordWithRule = rule.apply(new Employee(record), user, context);
-
         Employee maskedRecord = new Employee(record);
+
         // Then
         assertThat(recordWithRule.getAddress(), is(record.getAddress()));
         assertThat(recordWithRule, is(maskedRecord));
@@ -65,6 +65,7 @@ public class TestAddressRule extends TestCommonRuleTheories {
         employeeAddress.setStreetAddressNumber(null);
         employeeAddress.setStreetName(null);
         employeeAddress.setZipCode(employeeAddress.getZipCode().substring(0, employeeAddress.getZipCode().length() - 1) + "*");
+
         // Then - Observed
         assertThat(recordWithRule, is(redactedRecord));
     }
