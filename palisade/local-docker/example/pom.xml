@@ -137,7 +137,7 @@
                         </configuration>
                     </execution>
                     <execution>
-                        <id>copy-config-script-jupyter</id>
+                        <id>copy-run-script-jupyter</id>
                         <phase>install</phase>
                         <goals>
                             <goal>copy-resources</goal>
@@ -148,7 +148,24 @@
                                 <resource>
                                     <directory>${project.basedir}/../../..</directory>
                                     <filtering>false</filtering>
-                                    <include>run.sh</include>
+                                    <include>query.sh</include>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy-notebook-jupyter</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>./jupyter/docker/bin/</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${project.basedir}/../../../demo-notebooks</directory>
+                                    <filtering>false</filtering>
+                                    <include>**</include>
                                 </resource>
                             </resources>
                         </configuration>
@@ -160,7 +177,7 @@
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>./jupyter/docker/bin</outputDirectory>
+                            <outputDirectory>./jupyter/docker/bin/resources</outputDirectory>
                             <resources>
                                 <resource>
                                     <directory>${project.basedir}</directory>
@@ -177,7 +194,7 @@
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.basedir}/jupyter/docker/bin</outputDirectory>
+                            <outputDirectory>${project.basedir}/jupyter/docker/bin/resources</outputDirectory>
                             <overwrite>true</overwrite>
                             <resources>
                                 <resource>
@@ -370,13 +387,6 @@
                 <configuration>
                     <filesets>
                         <fileset>
-                            <directory>./jupyter/docker/bin</directory>`
-                            <includes>
-                                <include>example-model-*-shaded.jar</include>
-                            </includes>
-                            <followSymlinks>false</followSymlinks>
-                        </fileset>
-                        <fileset>
                             <directory>./configure-example/docker/bin</directory>
                             <includes>
                                 <include>example-model-*-shaded.jar</include>
@@ -485,8 +495,7 @@
                         <fileset>
                             <directory>./jupyter/docker/bin</directory>
                             <includes>
-                                <include>configRest.json</include>
-                                <include>run.sh</include>
+                                <include>**</include>
                             </includes>
                         </fileset>
                     </filesets>
