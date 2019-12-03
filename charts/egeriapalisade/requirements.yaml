@@ -5,11 +5,3 @@ dependencies:
   - name: kafka
     version: 6.1.6
     repository: https://charts.bitnami.com/bitnami
-
-#  - name: odpi-egeria-lab
-#    version: 1.0.0
-###    repository: https://github.com/odpi/egeria/tree/master/open-metadata-resources/open-metadata-deployment/charts
-#
-#  - name: palisade-workshop
-#    version: 0.1.1
-#    repository: egeriapalisade/charts/palisade-workshop-0.1.1
