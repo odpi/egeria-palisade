@@ -35,6 +35,8 @@ image:
   jupyter:
     namespace: jupyter
     name: base-notebook
+    tag: pal
+    pullPolicy: IfNotPresent
 
 # When using the k8s-internal Kafka (from Bitnami), enable auto-topic creation and minimize the footprint
 kafka:
