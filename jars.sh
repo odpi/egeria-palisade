@@ -14,7 +14,7 @@ cd ..
 (cd palisade && mvn install -Pquick)
 
 # Start with a clean build space
-#(cd egeria-palisade && mvn clean)
+(cd egeria-palisade && mvn clean)
 
 # Build hr-data-generator supplying Employee datatype
 (cd palisade && mvn install -pl example/hr-data-generator -am -Dmaven.test.skip=true)
