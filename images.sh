@@ -8,4 +8,4 @@ docker system prune --all --force
 (cd palisade/local-docker/example && docker-compose -f docker-compose.yml build)
 
 # Build local docker image for Jupyter
-(cd palisade/local-docker/example/jupyter && docker build . -t jupyter/base-notebook:latest)
+(cd palisade/local-docker/example/jupyter && docker build . -t jupyter/base-notebook:pal)
