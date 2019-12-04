@@ -15,14 +15,15 @@ We will cover how to start both services and run through a demo to collect metad
 1. [Maven](https://maven.apache.org/)
 1. [Docker](https://www.docker.com/)
 1. [Kubernetes](https://kubernetes.io/)
-1. [Helm](https://helm.sh/)
+1. [Helm 3](https://helm.sh/)
 1. [Egeria](https://github.com/odpi/egeria)
 1. [Palisade](https://github.com/gchq/Palisade)
 1. [Egeria-Palisade](https://github.com/odpi/egeria-palisade)
 
 
-<p>First things first we need to build Palisade and the Egeria-Palisade 
-repository which requires a clone of the Palisade repository in the same folder as this repository.
+<p>First things first we need to build Egeria, Palisade and the Egeria-Palisade 
+repository which requires a clone of the Egeria and Palisade repositories in the same folder as this repository. 
+Then the Palisade repository needs to be on on the develop branch. The other two repos should be on the master branch.
 To build the repositories, first:
 </p>
 

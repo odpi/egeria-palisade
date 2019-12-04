@@ -2,4 +2,21 @@
 
 export PALISADE_REST_CONFIG_PATH="/home/jovyan/resources/configRest.json"
 
-java -cp /home/jovyan/resources/example-model-*-shaded.jar uk.gov.gchq.palisade.example.client.ExampleSimpleClient $0 $1 $2
+java -cp /home/jovyan/resources/example-model-*-shaded.jar uk.gov.gchq.palisade.example.client.ExampleSimpleClient "$1" "$2" "$3" | \
+sed $'s/,uid=/\\\n\\\nuid=/g'| \
+sed $'s/,name=/\\\n\\\nname=/g'| \
+sed $'s/,dateOfBirth=/\\\ndateOfBirth=/g'| \
+sed $'s/,contactNumbers=/\\\ncontactNumbers=/g'| \
+sed $'s/,emergencyContacts=/\\\nemergencyContacts=/g'| \
+sed $'s/,address=/\\\naddress=/g'| \
+sed $'s/,bankDetails=/\\\nbankDetails=/g'| \
+sed $'s/,taxCode=/\\\ntaxCode=/g'| \
+sed $'s/,nationality=/\\\nnationality=/g'| \
+sed $'s/,manager=/\\\nmanager=/'| \
+sed $'s/,hireDate=/\\\nhireDate=/g'| \
+sed $'s/,grade=/\\\ngrade=/g'| \
+sed $'s/,department=/\\\ndepartment=/g'| \
+sed $'s/,salaryAmount=/\\\nsalaryAmount=/g'| \
+sed $'s/,salaryBonus=/\\\nsalaryBonus=/g'| \
+sed $'s/,workLocation=/\\\nworkLocation=/g'| \
+sed $'s/,sex=/\\\nsex=/g'

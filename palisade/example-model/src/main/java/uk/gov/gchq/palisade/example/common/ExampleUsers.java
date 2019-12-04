@@ -158,7 +158,7 @@ public final class ExampleUsers {
                 .name("Reggie Mint")
                 .email("reggie.mint@cocopharmaceutical.com")
                 .dn("uid=reggiemint,ou=People,dc=example,dc=org")
-                .userId("reggiemint")
+                .userId("188888")
 //                .auths("public", "private")
                 ;
         assignUserToFinanceGroup(user);
@@ -170,7 +170,7 @@ public final class ExampleUsers {
                 .name("Tom Tally")
                 .email("tom.tally@cocopharmaceutical.com")
                 .dn("uid=tomtally,ou=People,dc=example,dc=org")
-                .userId("tomtally")
+                .userId("896522")
 //                .auths("public", "private")
                 ;
         assignUserToFinanceGroup(user);
@@ -182,7 +182,7 @@ public final class ExampleUsers {
                 .name("Sally Counter")
                 .email("sally.counter@cocopharmaceutical.com")
                 .dn("uid=sallycounter,ou=People,dc=example,dc=org")
-                .userId("sallycounter")
+                .userId("457911")
 //                .auths("public", "private")
                 ;
         assignUserToFinanceGroup(user);
@@ -194,7 +194,7 @@ public final class ExampleUsers {
                 .name("Harry Hopeful")
                 .email("harry.hopeful@cocopharmaceutical.com")
                 .dn("uid=harryhopeful,ou=People,dc=example,dc=org")
-                .userId("harryhopeful")
+                .userId("144994")
 //                .auths("public", "private")
                 ;
         assignUserToFinanceGroup(user);
@@ -206,7 +206,7 @@ public final class ExampleUsers {
                 .name("Jules Keeper")
                 .email("jules.keeper@cocopharmaceutical.com")
                 .dn("uid=juleskeeper,ou=People,dc=example,dc=org")
-                .userId("juleskeeper")
+                .userId("296776")
 //                .auths("public", "private")
                 ;
         assignUserToGovernanceGroup(user);
@@ -218,7 +218,7 @@ public final class ExampleUsers {
                 .name("Faith Broker")
                 .email("faith.broker@cocopharmaceutical.com")
                 .dn("uid=faithbroker,ou=People,dc=example,dc=org")
-                .userId("faithbroker")
+                .userId("139870")
 //                .auths("public", "private")
                 ;
         assignUserToGovernanceGroup(user);
@@ -230,7 +230,7 @@ public final class ExampleUsers {
                 .name("Ivor Padlock")
                 .email("ivor.padlock@cocopharmaceutical.com")
                 .dn("uid=ivorpadlock,ou=People,dc=example,dc=org")
-                .userId("ivorpadlock")
+                .userId("499888")
 //                .auths("public", "private")
                 ;
         assignUserToGovernanceGroup(user);
@@ -242,7 +242,7 @@ public final class ExampleUsers {
                 .name("Erin Overview")
                 .email("erin.overview@cocopharmaceutical.com")
                 .dn("uid=erinoverview,ou=People,dc=example,dc=org")
-                .userId("erinoverview")
+                .userId("324713")
 //                .auths("public", "private")
                 ;
         assignUserToITOpsGroup(user);
@@ -254,7 +254,7 @@ public final class ExampleUsers {
                 .name("Peter Profile")
                 .email("peter.profile@cocopharmaceutical.com")
                 .dn("uid=peterprofile,ou=People,dc=example,dc=org")
-                .userId("peterprofile")
+                .userId("986419")
 //                .auths("public", "private")
                 ;
         assignUserToITOpsGroup(user);
@@ -266,7 +266,7 @@ public final class ExampleUsers {
                 .name("Gary Geeke")
                 .email("gary.geeke@cocopharmaceutical.com")
                 .dn("uid=garygeeke,ou=People,dc=example,dc=org")
-                .userId("garygeeke")
+                .userId("199995")
 //                .auths("public", "private")
                 ;
         assignUserToITOpsGroup(user);
@@ -278,7 +278,7 @@ public final class ExampleUsers {
                 .name("Polly Tasker")
                 .email("polly.tasker@cocopharmaceutical.com")
                 .dn("uid=pollytasker,ou=People,dc=example,dc=org")
-                .userId("pollytasker")
+                .userId("338575")
 //                .auths("public", "private")
                 ;
         assignUserToITProjectGroup(user);
@@ -290,7 +290,7 @@ public final class ExampleUsers {
                 .name("Bob Nitter")
                 .email("bob.nitter@cocopharmaceutical.com")
                 .dn("uid=bobnitter,ou=People,dc=example,dc=org")
-                .userId("bobnitter")
+                .userId("458109")
 //                .auths("public", "private")
                 ;
         assignUserToITProjectGroup(user);
@@ -302,7 +302,7 @@ public final class ExampleUsers {
                 .name("Lemmie Stage")
                 .email("lemmie.stage@cocopharmaceutical.com")
                 .dn("uid=lemmiestage,ou=People,dc=example,dc=org")
-                .userId("lemmiestage")
+                .userId("818928")
 //                .auths("public", "private")
                 ;
         assignUserToITProjectGroup(user);
@@ -326,7 +326,7 @@ public final class ExampleUsers {
                 .name("Callie Quartile")
                 .email("callie.quartile@cocopharmaceutical.com")
                 .dn("uid=calliequartile,ou=People,dc=example,dc=org")
-                .userId("calliequartile")
+                .userId("328080")
 //                .auths("public", "private")
                 ;
         assignUserToClinicalTrialGroup(user);
@@ -338,7 +338,7 @@ public final class ExampleUsers {
                 .name("Tessa Tube")
                 .email("tessa.tube@cocopharmaceutical.com")
                 .dn("uid=tessatube,ou=People,dc=example,dc=org")
-                .userId("tessatube")
+                .userId("302145")
 //                .auths("public", "private")
                 ;
         assignUserToClinicalTrialGroup(user);
@@ -350,7 +350,7 @@ public final class ExampleUsers {
                 .name("Tania Tidie")
                 .email("tania.tidie@cocopharmaceutical.com")
                 .dn("uid=taniatidie,ou=People,dc=example,dc=org")
-                .userId("taniatidie")
+                .userId("209482")
 //                .auths("public", "private")
                 ;
         assignUserToClinicalTrialGroup(user);

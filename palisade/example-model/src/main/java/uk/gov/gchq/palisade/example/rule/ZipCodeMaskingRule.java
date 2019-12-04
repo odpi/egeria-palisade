@@ -42,8 +42,12 @@ public class ZipCodeMaskingRule implements Rule<Employee> {
             return record;
         } else if (purpose.equals(Purpose.SALARY_ANALYSIS.name())) {
             return maskRecord(record);
-        } else if (purpose.equals(Purpose.PROFILE_ACCESS.name()) && user.getUserId().equals(record.getUid())) {
-            return record;
+        } else if (purpose.equals(Purpose.PROFILE_ACCESS.name())) {
+            if (user.getUserId().equals(record.getUid())) {
+                return record;
+            } else {
+                return null;
+            }
         }
         return redactWholeAddress(record);
     }
