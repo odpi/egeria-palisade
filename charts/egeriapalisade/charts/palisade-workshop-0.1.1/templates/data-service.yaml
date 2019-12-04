@@ -53,7 +53,7 @@ spec:
             {{- toYaml .Values.dataservice.resources | nindent 12 }}
         volumeMounts:
           - name: palisade-pv-storage
-            mountPath: /data
+            mountPath: /secured/hr
       restartPolicy: Always
       volumes:
       - name: palisade-pv-storage

@@ -42,8 +42,12 @@ public class ZipCodeMaskingRule implements Rule<Employee> {
             return record;
         } else if (purpose.equals(Purpose.SALARY_ANALYSIS.name())) {
             return maskRecord(record);
-        } else if (purpose.equals(Purpose.PROFILE_ACCESS.name()) && user.getUserId().equals(record.getUid())) {
-            return record;
+        } else if (purpose.equals(Purpose.PROFILE_ACCESS.name())) {
+            if (user.getUserId().equals(record.getUid())) {
+                return record;
+            } else {
+                return null;
+            }
         }
         return redactWholeAddress(record);
     }
@@ -51,7 +55,10 @@ public class ZipCodeMaskingRule implements Rule<Employee> {
     private Employee maskRecord(final Employee maskedRecord) {
         Address address = maskedRecord.getAddress();
         String zipCode = address.getZipCode();
-        String zipCodeRedacted = zipCode.substring(0, zipCode.length() - 2);
+        String zipCodeRedacted = null;
+        if (zipCode.length() > 2) {
+            zipCodeRedacted = zipCode.substring(0, zipCode.length() - 2);
+        }
         address.setStreetAddressNumber(null);
         address.setStreetName(null);
         address.setZipCode(zipCodeRedacted);

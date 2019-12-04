@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
-sed $'s/Alice \[/\\\n\\\nAlice \[/g'| \
-sed $'s/Bob \[/\\\n\\\nBob \[/g' | \
-sed $'s/Eve \[/\\\n\\\nEve \[/g' | \
+export PALISADE_REST_CONFIG_PATH="/home/jovyan/resources/configRest.json"
+
+java -cp /home/jovyan/resources/example-model-*-shaded.jar uk.gov.gchq.palisade.example.client.ExampleSimpleClient "$1" "$2" "$3" | \
+sed $'s/,uid=/\\\n\\\nuid=/g'| \
 sed $'s/,name=/\\\n\\\nname=/g'| \
 sed $'s/,dateOfBirth=/\\\ndateOfBirth=/g'| \
 sed $'s/,contactNumbers=/\\\ncontactNumbers=/g'| \

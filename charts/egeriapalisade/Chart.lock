@@ -1,9 +1,6 @@
 dependencies:
-- name: lab
-  repository: file:///Users/jonesn/src/egeria/open-metadata-resources/open-metadata-deployment/charts/lab
-  version: 0.1.0
-- name: palisade-workshop
-  repository: file:///Users/jonesn/src/palisade-workshop/
-  version: 0.1.0
-digest: sha256:8d9ddfa247979d5ef3bcfa10ea42b5289e9239cb26cd00aaf49cf029c3750c11
-generated: "2019-09-10T13:33:42.817786+01:00"
+- name: kafka
+  repository: https://charts.bitnami.com/bitnami
+  version: 6.1.6
+digest: sha256:90bb64de6b0905081a323632123e3c9a07ea6e1f9a6a0cd819a19d4d428edbfa
+generated: "2019-12-03T15:43:06.549014Z"

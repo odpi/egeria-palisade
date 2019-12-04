@@ -21,8 +21,12 @@ public class PersonalCharacteristicsRule implements Rule<Employee> {
         requireNonNull(context);
         String purpose = context.getPurpose();
 
-        if (purpose.equals(Purpose.PROFILE_ACCESS.name()) && user.getUserId().equals(record.getUid())) {
-            return record;
+        if (purpose.equals(Purpose.PROFILE_ACCESS.name())) {
+            if (user.getUserId().equals(record.getUid())) {
+                return record;
+            } else {
+                return null;
+            }
         } else {
             return redactRecord(record);
         }

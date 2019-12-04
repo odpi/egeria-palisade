@@ -106,7 +106,7 @@ public class CreateCocoEmployeesAvro {
             initializeMaps(currentYear);
             initializeworkLocation();
             File inputFile = new File(salaryFilePath);
-            String outputFileName = outputFolderPath + "coco_employees.avro";
+            String outputFileName = outputFolderPath + "Employee.avro";
             long startTime = System.currentTimeMillis();
             AvroSerialiser<Employee> employeeAvroSerialiser = new AvroSerialiser<>(Employee.class);
             Stream<Employee> fullStream = null;
@@ -176,7 +176,7 @@ public class CreateCocoEmployeesAvro {
                         String tok = inputTokenizer.nextToken();
                         //  System.out.println("Token PNUM :" + tok);
                         UserId uid = new UserId();
-                        uid.setId(tok);
+                        uid.setId((firstName + lastName).toLowerCase());
                         employee.setUid(uid);
                     }
                     if (inputTokenizer.hasMoreTokens()) {

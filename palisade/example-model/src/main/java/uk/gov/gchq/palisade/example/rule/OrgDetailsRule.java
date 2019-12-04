@@ -39,8 +39,12 @@ public class OrgDetailsRule implements Rule<Employee> {
 
         if (purpose.equals(Purpose.SALARY_ANALYSIS.name()) || purpose.equals(Purpose.COMPANY_DIRECTORY.name())) {
             return record;
-        } else if (purpose.equals(Purpose.PROFILE_ACCESS.name()) && user.getUserId().equals(record.getUid())) {
-            return record;
+        } else if (purpose.equals(Purpose.PROFILE_ACCESS.name())) {
+            if (user.getUserId().equals(record.getUid())) {
+                return record;
+            } else {
+                return null;
+            }
         }
         return redactRecord(record);
     }

@@ -7,14 +7,16 @@ cd ..
 # * we need to adapt the User datatype and its associated fields for egeria
 # * we need to build a resource-service rest client pointing to egeria
 
+(cd egeria && mvn clean install -DskipTests)
+
 # Start with a clean build space
-#(cd palisade && mvn clean)
+(cd palisade && mvn clean)
 
 # Build palisade without examples supplying most common dependencies except Employee datatype
 (cd palisade && mvn install -Pquick)
 
 # Start with a clean build space
-#(cd egeria-palisade && mvn clean)
+(cd egeria-palisade && mvn clean)
 
 # Build hr-data-generator supplying Employee datatype
 (cd palisade && mvn install -pl example/hr-data-generator -am -Dmaven.test.skip=true)

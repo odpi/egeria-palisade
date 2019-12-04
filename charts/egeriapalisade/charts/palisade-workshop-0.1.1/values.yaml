@@ -13,8 +13,8 @@ configservice:
       cpu: 100m
       memory: 128Mi
 configureexample:
-  hostpath: /mnt/c/data
-  inputfilepath: /data
+  hostpath: /Users/p72453/Code/egeria-palisade/data-generator/sample-data
+  inputfilepath: /secured/hr/
   image:
     pullPolicy: IfNotPresent
     repository: example_configure-example

@@ -137,18 +137,71 @@
                         </configuration>
                     </execution>
                     <execution>
-                        <id>copy-config-json-client</id>
+                        <id>copy-run-script-jupyter</id>
                         <phase>install</phase>
                         <goals>
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>./client/docker/bin</outputDirectory>
+                            <outputDirectory>./jupyter/docker/bin</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${project.basedir}/../../..</directory>
+                                    <filtering>false</filtering>
+                                    <include>query.sh</include>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy-notebook-jupyter</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>./jupyter/docker/bin/</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${project.basedir}/../../../demo-notebooks</directory>
+                                    <filtering>false</filtering>
+                                    <include>**</include>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy-config-json-jupyter</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>./jupyter/docker/bin/resources</outputDirectory>
                             <resources>
                                 <resource>
                                     <directory>${project.basedir}</directory>
                                     <filtering>false</filtering>
                                     <include>configRest.json</include>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy-example-model-for-jupyter</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.basedir}/jupyter/docker/bin/resources</outputDirectory>
+                            <overwrite>true</overwrite>
+                            <resources>
+                                <resource>
+                                    <directory>../../example-model/target</directory>
+                                    <includes>
+                                        <include>example-model-*-shaded.jar</include>
+                                    </includes>
                                 </resource>
                             </resources>
                         </configuration>
@@ -334,13 +387,6 @@
                 <configuration>
                     <filesets>
                         <fileset>
-                            <directory>./client/docker/bin</directory>`
-                            <includes>
-                                <include>example-model-*-shaded.jar</include>
-                            </includes>
-                            <followSymlinks>false</followSymlinks>
-                        </fileset>
-                        <fileset>
                             <directory>./configure-example/docker/bin</directory>
                             <includes>
                                 <include>example-model-*-shaded.jar</include>
@@ -447,9 +493,9 @@
                             </includes>
                         </fileset>
                         <fileset>
-                            <directory>./client/docker/bin</directory>
+                            <directory>./jupyter/docker/bin</directory>
                             <includes>
-                                <include>configRest.json</include>
+                                <include>**</include>
                             </includes>
                         </fileset>
                     </filesets>
