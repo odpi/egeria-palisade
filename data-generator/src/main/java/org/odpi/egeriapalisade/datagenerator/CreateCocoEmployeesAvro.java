@@ -1,6 +1,8 @@
 /* SPDX-License-Identifier: Apache-2.0 */
 package org.odpi.egeriapalisade.datagenerator;
 
+import com.github.javafaker.Faker;
+
 import uk.gov.gchq.palisade.UserId;
 import uk.gov.gchq.palisade.data.serialise.AvroSerialiser;
 import uk.gov.gchq.palisade.example.hrdatagenerator.types.*;
@@ -52,6 +54,8 @@ public class CreateCocoEmployeesAvro {
     static String salaryFilePath;
     static String workLocationFilePath;
     static String outputFolderPath;
+    static Random random = new Random(0);
+    static Faker faker = ThreadLocalFaker.getFaker(random);
 
     /**
      * Some hard coded maps containing information about the coco personas
@@ -132,7 +136,6 @@ public class CreateCocoEmployeesAvro {
                     String streetName = "";
                     String city = "";
                     String state = "";
-                    String zipCode = "";
 
                     if (inputTokenizer.hasMoreTokens()) {
                         String tok = inputTokenizer.nextToken();
@@ -281,12 +284,11 @@ public class CreateCocoEmployeesAvro {
                     }
 
                     employee.setName(firstName + " " + lastName);
-                    Address address = new Address();
+                    Address address = Address.generate(faker, random);
                     address.setStreetAddressNumber(streetAddressNumber);
                     address.setCity(city);
                     address.setStreetName(streetName);
                     address.setState(state);
-                    address.setZipCode(zipCode);
                     employee.setAddress(address);
 
                     // set Nationality randomly
@@ -334,7 +336,7 @@ public class CreateCocoEmployeesAvro {
             StringTokenizer inputTokenizer = new StringTokenizer(inputLine, ";");
 
             String wlName = "";
-            Address address = new Address();
+            Address address = Address.generate(faker, random);
 
             if (inputTokenizer.hasMoreTokens()) {
                 String tok = inputTokenizer.nextToken();
