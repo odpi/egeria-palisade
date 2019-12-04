@@ -56,7 +56,7 @@ public class ZipCodeMaskingRule implements Rule<Employee> {
         Address address = maskedRecord.getAddress();
         String zipCode = address.getZipCode();
         String zipCodeRedacted = null;
-        if (zipCode.length() > 2) {
+        if (zipCode.length() > 3) {
             zipCodeRedacted = zipCode.substring(0, zipCode.length() - 2);
         }
         address.setStreetAddressNumber(null);
