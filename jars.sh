@@ -3,9 +3,6 @@ set -e
 cd ..
 
 # We want to build palisade with egeria supplying the resource service
-# This means:
-# * we need to adapt the User datatype and its associated fields for egeria
-# * we need to build a resource-service rest client pointing to egeria
 
 #(cd egeria && mvn clean install -DskipTests)
 

@@ -6,7 +6,7 @@ java -cp /home/jovyan/resources/example-model-*-shaded.jar uk.gov.gchq.palisade.
 sed $'s/uid=/\\\n\\nuid=/'| \
 sed $'s/,name=/\\\nname=/g'| \
 sed $'s/,dateOfBirth=/\\\ndateOfBirth=/g'| \
-sed $'s/,contactNumbers=/\\\ncontactNumbers=/g'| \
+sed $'s/,contactNumbers=/\\\ncontactNumbers=/'| \
 sed $'s/,emergencyContacts=/\\\nemergencyContacts=/g'| \
 sed $'s/,address=/\\\naddress=/g'| \
 sed $'s/,bankDetails=/\\\nbankDetails=/g'| \
@@ -19,4 +19,5 @@ sed $'s/,department=/\\\ndepartment=/g'| \
 sed $'s/,salaryAmount=/\\\nsalaryAmount=/g'| \
 sed $'s/,salaryBonus=/\\\nsalaryBonus=/g'| \
 sed $'s/,workLocation=/\\\nworkLocation=/g'| \
-sed $'s/,sex=/\\\nsex=/g'
+sed $'s/,sex=/\\\nsex=/g'| \
+sed $'s/contactName=/\\\ncontactName=/g'

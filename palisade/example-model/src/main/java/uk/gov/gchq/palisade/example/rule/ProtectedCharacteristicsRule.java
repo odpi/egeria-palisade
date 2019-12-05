@@ -38,7 +38,7 @@ public class ProtectedCharacteristicsRule implements Rule<Employee> {
         String purpose = context.getPurpose();
 
         if (purpose.equals(Purpose.SALARY_ANALYSIS.name())) {
-            return record;
+            return maskRecord(record);
         } else if (purpose.equals(Purpose.PROFILE_ACCESS.name())) {
             if (user.getUserId().equals(record.getUid())) {
                 return record;
@@ -47,6 +47,16 @@ public class ProtectedCharacteristicsRule implements Rule<Employee> {
             }
         }
         return redactRecord(record);
+    }
+
+    private Employee maskRecord(final Employee maskRecord) {
+        maskRecord.setDateOfBirth("**" + maskRecord.getDateOfBirth().substring(2));
+        maskRecord.setGrade(null);
+        maskRecord.setNationality(null);
+        maskRecord.setSex(null);
+        maskRecord.setSalaryAmount(-1);
+        maskRecord.setSalaryBonus(-1);
+        return maskRecord;
     }
 
     private Employee redactRecord(final Employee redactedRecord) {

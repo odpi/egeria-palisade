@@ -123,7 +123,7 @@ public class CreateCocoEmployeesAvro {
                 while ((inputLine = br.readLine()) != null) {
                     //  //  System.out.println(inputLine);
 
-                    Employee employee = new Employee();
+                    Employee employee = Employee.generate(random);
 
                     //  populate file from csv file.
                     StringTokenizer inputTokenizer = new StringTokenizer(inputLine, ";");
