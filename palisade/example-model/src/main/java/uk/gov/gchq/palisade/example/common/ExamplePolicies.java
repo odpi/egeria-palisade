@@ -19,7 +19,6 @@ package uk.gov.gchq.palisade.example.common;
 import uk.gov.gchq.palisade.example.hrdatagenerator.types.Employee;
 import uk.gov.gchq.palisade.example.rule.AddressRule;
 import uk.gov.gchq.palisade.example.rule.ContactsRule;
-import uk.gov.gchq.palisade.example.rule.DutyOfCareRule;
 import uk.gov.gchq.palisade.example.rule.HireDateRule;
 import uk.gov.gchq.palisade.example.rule.IdentityRule;
 import uk.gov.gchq.palisade.example.rule.OrgDetailsRule;
