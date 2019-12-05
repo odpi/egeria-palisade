@@ -4,10 +4,10 @@ cd ..
 
 # We want to build palisade with egeria supplying the resource service
 
-(cd egeria && mvn clean install -DskipTests)
+#(cd egeria && mvn clean install -DskipTests)
 
 # Start with a clean build space
-(cd palisade && mvn clean)
+#(cd palisade && mvn clean)
 
 # Build palisade without examples supplying most common dependencies except Employee datatype
 (cd palisade && mvn install -Pquick)
