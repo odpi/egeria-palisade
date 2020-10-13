@@ -29,7 +29,7 @@
     <commons-io.version>2.6</commons-io.version>
     <commons-lang3.version>3.8.1</commons-lang3.version>
     <palisade.version>0.3.1-SNAPSHOT</palisade.version>
-    <junit.version>4.12</junit.version>
+    <junit.version>4.13.1</junit.version>
   </properties>
 
   <dependencies>
